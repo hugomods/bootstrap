@@ -1,7 +1,54 @@
 ---
 ---
 
-## Shortcodes
+## `alert`
+
+### `alert` Styles
+
+{{< bootstrap/alert primary >}}
+A simple primary alert—check it out!
+{{< /bootstrap/alert >}}
+
+{{< bootstrap/alert secondary >}}
+A simple secondary alert—check it out!
+{{< /bootstrap/alert >}}
+
+{{< bootstrap/alert success >}}
+A simple success alert—check it out!
+{{< /bootstrap/alert >}}
+
+{{< bootstrap/alert danger >}}
+A simple danger alert—check it out!
+{{< /bootstrap/alert >}}
+
+{{< bootstrap/alert warning >}}
+A simple warning alert—check it out!
+{{< /bootstrap/alert >}}
+
+{{< bootstrap/alert info >}}
+A simple info alert—check it out!
+{{< /bootstrap/alert >}}
+
+{{< bootstrap/alert light >}}
+A simple light alert—check it out!
+{{< /bootstrap/alert >}}
+
+{{< bootstrap/alert dark >}}
+A simple dark alert—check it out!
+{{< /bootstrap/alert >}}
+
+### `alert-link`
+
+{{< bootstrap/alert >}}
+A simple primary alert with {{< bootstrap/alert-link "an example link" "#alert-link" >}}. Give it a click if you like.
+{{< /bootstrap/alert >}}
+
+### `alert-heading`
+
+{{< bootstrap/alert success >}}
+{{< bootstrap/alert-heading "Well done!" >}}
+Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
+{{< /bootstrap/alert >}}
 
 ## `config-toggle`
 
