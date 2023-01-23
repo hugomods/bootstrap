@@ -8,7 +8,7 @@
   {{- with .Get 1 }}{{ $langs = split . "," }}{{ end }}
 {{- end }}
 {{- $idPrefix := printf "%s-%s" (replaceRE "[\\|/]" "-" $filename) (delimit (shuffle (seq 1 9)) "") -}}
-<div class="config-toggle">
+<div class="config-toggle mb-3">
   <ul class="nav nav-tabs mb-1" role="tablist">
     {{- range $i, $lang := $langs -}}
       {{- $id := printf "code-toggle-%s-%s" $idPrefix $lang -}}
