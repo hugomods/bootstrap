@@ -4,6 +4,41 @@ This module ships with handy partials and shortcodes.
 
 ## Shortcodes
 
+### `alert` Shortcode
+
+```markdown
+{{< bootstrap/alert [style] >}}
+...
+{{< /bootstrap/alert >}}
+```
+
+| Parameter | Position |  Type  | Required | Default   | Description                                                                |
+| --------- | :------: | :----: | :------: | --------- | -------------------------------------------------------------------------- |
+| `style`   |   `#0`   | String |    -     | `primary` | The style, such as `primary`, `secondary`, `warning`, `info` and `danger`. |
+
+You can nest the `alert-heading` and `alert-link` shortcodes inside it.
+
+### `alert-heading` Shortcode
+
+```markdown
+{{< bootstrap/alert-heading [heading] >}}
+```
+
+| Parameter | Position |  Type  | Required | Description  |
+| :-------: | :------: | :----: | :------: | ------------ |
+|     -     |   `#0`   | String |    Y     | The heading. |
+
+### `alert-link` Shortcode
+
+```markdown
+{{< bootstrap/alert-link [text] [url] >}}
+```
+
+| Parameter | Position |  Type  | Required | Description    |
+| :-------: | :------: | :----: | :------: | -------------- |
+|     -     |   `#0`   | String |    Y     | The link text. |
+|     -     |   `#1`   | String |    Y     | The link URL.  |
+
 ### `config-toggle` Shortcode
 
 The `config-toggle` generates same configuration in multiple formats (`TOML`, `YAML` and `JSON`) from one configuration, it's useful to write docs for projects that support multiple formats configurations.

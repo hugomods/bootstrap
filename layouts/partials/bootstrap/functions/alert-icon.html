@@ -1,0 +1,7 @@
+{{- $icons := dict
+  "warning" "exclamation-circle-fill"
+  "success" "check-circle-fill"
+  "info" "info-circle-fill"
+  "danger" "exclamation-triangle-fill"
+}}
+{{- return cond (isset $icons .) (index $icons .) "info-circle-fill" -}}

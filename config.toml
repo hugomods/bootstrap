@@ -1,0 +1,5 @@
+[[module.imports]]
+path = "github.com/razonyang/hugo-mod-icons"
+
+[[module.imports]]
+path = "github.com/razonyang/hugo-mod-icons/vendors/bootstrap"
