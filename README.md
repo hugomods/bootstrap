@@ -1,5 +1,10 @@
 # Hugo Bootstrap Module
 
+[![Used By](https://img.shields.io/badge/dynamic/json?color=success&label=used+by&query=repositories_humanize&logo=hugo&style=flat-square&url=https://api.razonyang.com/v1/github/dependents/razonyang/hugo-mod-bootstrap)](https://github.com/razonyang/hugo-mod-bootstrap/network/dependents)
+![Hugo Requirements](https://img.shields.io/badge/dynamic/json?color=important&label=requirements&query=requirements&logo=hugo&style=flat-square&url=https://api.razonyang.com/v1/hugo/modules/github.com/razonyang/hugo-mod-bootstrap)
+[![License](https://img.shields.io/github/license/razonyang/hugo-mod-bootstrap?style=flat-square)](https://github.com/razonyang/hugo-mod-bootstrap/blob/main/LICENSE)
+[![Version](https://img.shields.io/github/v/tag/razonyang/hugo-mod-bootstrap?label=version&style=flat-square)](https://github.com/razonyang/hugo-mod-bootstrap/tags)
+
 This module ships with handy partials and shortcodes.
 
 ## Shortcodes
