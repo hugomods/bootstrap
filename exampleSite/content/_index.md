@@ -50,6 +50,14 @@ A simple primary alert with {{< bootstrap/alert-link "an example link" "#alert-l
 Aww yeah, you successfully read this important alert message. This example text is going to run a bit longer so that you can see how spacing within an alert works with this kind of content.
 {{< /bootstrap/alert >}}
 
+## `clearfix`
+
+{{% bootstrap/clearfix %}}
+<img class="float-start me-2" src="https://cdn.jsdelivr.net/npm/bootstrap-icons@1.10.3/icons/bootstrap.svg" width="64px" height="64px"> TEXTS AROUND THE FLOATED IMAGE.
+
+WRAP IT INSIDE THE `clearfix` SHORTCODE.
+{{% /bootstrap/clearfix %}}
+
 ## `config-toggle`
 
 {{< bootstrap/config-toggle config >}}
