@@ -2,3 +2,6 @@ title = 'Hugo Bootstrap Module'
 
 [[module.imports]]
 path = "github.com/razonyang/hugo-mod-bootstrap"
+
+[markup.goldmark.renderer]
+unsafe = true

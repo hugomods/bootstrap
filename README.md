@@ -7,6 +7,15 @@
 
 This module ships with handy partials and shortcodes.
 
+## Requirements
+
+Some shortcodes like `clearfix` require the `markup.goldmark.renderer.unsafe` to be enabled.
+
+```toml
+[markup.goldmark.renderer]
+unsafe = true
+```
+
 ## Shortcodes
 
 ### `alert` Shortcode
@@ -43,6 +52,16 @@ You can nest the `alert-heading` and `alert-link` shortcodes inside it.
 | :-------: | :------: | :----: | :------: | -------------- |
 |     -     |   `#0`   | String |    Y     | The link text. |
 |     -     |   `#1`   | String |    Y     | The link URL.  |
+
+### `clearfix` Shortcode
+
+The `clearfix` shortcode clear floated content.
+
+```markdown
+{{% bootstrap/clearfix %}}
+FLOATED CONTENT, SUCH AS FLOATED IMAGES.
+{{% /bootstrap/clearfix %}}
+```
 
 ### `config-toggle` Shortcode
 
