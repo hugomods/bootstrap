@@ -9,6 +9,12 @@
 A simple primary alert—check it out!
 {{< /bootstrap/alert >}}
 
+{{< bootstrap/alert primary >}}
+{{% markdownify %}}
+A simple *primary alert*—**check it out**!
+{{% /markdownify %}}
+{{< /bootstrap/alert >}}
+
 {{< bootstrap/alert secondary >}}
 A simple secondary alert—check it out!
 {{< /bootstrap/alert >}}
