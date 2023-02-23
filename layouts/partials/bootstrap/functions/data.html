@@ -1,0 +1,10 @@
+{{- $data := false }}
+{{- $siteData := site.Data }}
+{{- $keys := split . "." }}
+{{- range $keys }}
+  {{- with index $siteData . }}
+    {{- $siteData = . }}
+    {{- $data = . }}
+  {{- end }}
+{{- end }}
+{{- return $data -}}

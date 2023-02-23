@@ -1,0 +1,25 @@
+{{- $key := "" }}
+{{- if .IsNamedParams }}
+  {{- $key = .Get "key" }}
+{{- else }}
+  {{- $key = .Get 0 }}
+{{- end }}
+{{- $data := partialCached "bootstrap/functions/data" $key $key }}
+{{- with $data }}
+  <div class="row g-4 py-5 row-cols-1 row-cols-md-2 row-cols-lg-3">
+    {{- range sort . "weight" }}
+      <div class="col d-flex align-items-start mb-3">
+        {{- with .icon }}
+          <div
+            class="text-bg-light p-2 rounded d-inline-flex align-items-center justify-content-center fs-4 flex-shrink-0 me-3 mt-1">
+            {{ partial "icons/icon" (merge (dict "width" "1.25em" "height" "1.25em" "vendor" "bootstrap") .) }}
+          </div>
+        {{- end }}
+        <div>
+          <div class="fw-bold mb-1 fs-4">{{ .title }}</div>
+          <p class="mb-0 text-secondary">{{ .description | markdownify }}</p>
+        </div>
+      </div>
+    {{- end }}
+  </div>
+{{- end -}}
