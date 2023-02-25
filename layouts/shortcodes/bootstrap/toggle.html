@@ -1,9 +1,13 @@
 {{/* .Inner is required by closed shortcode. */}}
 {{- if eq .Inner "" }}{{ end }}
 {{- $name := cond .IsNamedParams (.Get "name") (.Get 0) }}
+{{- $style := "tabs" }}
+{{- if .IsNamedParams }}
+  {{- with .Get "style" }}{{ $style = . }}{{ end }}
+{{- end }}
 {{- $items := .Page.Store.Get (printf "toggle-%s-items" $name) }}
 <div class="toggle mb-3">
-  <ul class="nav nav-tabs mb-1" id="toggle-{{ $name }}" role="tablist">
+  <ul class="nav nav-{{ $style }} nav-fill mb-3" id="toggle-{{ $name }}" role="tablist">
     {{- range $i, $item := $items }}
       {{- $idPrefix := printf "toggle-%s-%s" $name .Name }}
       <li class="nav-item" role="presentation">
