@@ -1,10 +1,8 @@
 {{- $toggleName := cond .Parent.IsNamedParams (.Parent.Get "name") (.Parent.Get 0) }}
 {{- $itemName := cond .IsNamedParams (.Get "name") (.Get 0) }}
 {{- $key := printf "toggle-%s-items" $toggleName }}
-{{- $countKey := printf "%s-count" $key }}
-{{- .Page.Store.Add $countKey 1 }}
 {{- .Page.Store.SetInMap $key $itemName (dict
   "Name" $itemName
   "Inner" .Inner
-  "Weight" (.Page.Store.Get $countKey))
+  "Weight" .Ordinal)
 -}}
