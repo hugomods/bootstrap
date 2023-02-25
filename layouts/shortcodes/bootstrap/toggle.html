@@ -5,7 +5,7 @@
 {{- if .IsNamedParams }}
   {{- with .Get "style" }}{{ $style = . }}{{ end }}
 {{- end }}
-{{- $items := .Page.Store.Get (printf "toggle-%s-items" $name) }}
+{{- $items := .Page.Scratch.Get (printf "toggle-%s-items" $name) }}
 <div class="toggle mb-3">
   <ul class="nav nav-{{ $style }} nav-fill mb-3" id="toggle-{{ $name }}" role="tablist">
     {{- range $i, $item := $items }}
