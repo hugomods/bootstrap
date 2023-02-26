@@ -13,7 +13,7 @@
     id="toggle-{{ $name }}"
     role="tablist">
     {{- range $i, $item := $items }}
-      {{- $idPrefix := printf "toggle-%s-%s" $name .Name }}
+      {{- $idPrefix := printf "toggle-%s-%s" $name .Id }}
       <li class="nav-item" role="presentation">
         <button
           class="nav-link{{ cond (eq $i 0) ` active` `` }}"
@@ -31,7 +31,7 @@
   </ul>
   <div class="tab-content" id="toggle-{{ $name }}-content">
     {{- range $i, $item := $items }}
-      {{- $idPrefix := printf "toggle-%s-%s" $name .Name }}
+      {{- $idPrefix := printf "toggle-%s-%s" $name .Id }}
       <div
         class="tab-pane fade{{ cond (eq $i 0) ` show active` `` }}"
         id="{{ $idPrefix }}-tab-pane"
