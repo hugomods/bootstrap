@@ -1,0 +1,17 @@
+{
+  "name": "Hugo Bootstrap Module",
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/hugomods/bootstrap.git"
+  },
+  "author": "Razon Yang <razonyang@gmail.com>",
+  "license": "MIT",
+  "bugs": {
+    "url": "https://github.com/hugomods/bootstrap/issues"
+  },
+  "homepage": "https://github.com/hugomods/bootstrap",
+  "devDependencies": {
+    "prettier": "^2.7.1",
+    "prettier-plugin-go-template": "^0.0.13"
+  }
+}
