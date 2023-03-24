@@ -1,9 +1,13 @@
 {{/* .Inner is required by closed shortcode. */}}
 {{- if eq .Inner "" }}{{ end }}
-{{- $name := cond .IsNamedParams (.Get "name") (.Get 0) }}
+{{- $name := "" }}
 {{- $style := "tabs" }}
 {{- if .IsNamedParams }}
+  {{- $name = .Get "name" }}
   {{- with .Get "style" }}{{ $style = . }}{{ end }}
+{{- else }}
+  {{- $name = .Get 0 }}
+  {{- with .Get 1 }}{{ $style = . }}{{ end }}
 {{- end }}
 {{- $items := .Page.Store.Get (printf "toggle-%s-items" $name) }}
 {{- $items = sort $items "Weight" }}
