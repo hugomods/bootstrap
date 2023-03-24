@@ -1,0 +1,27 @@
+{{- $id := printf "collapse-%d" now.UnixNano }}
+{{- $heading := "" }}
+{{- $style := "secondary" }}
+{{- $expand := false }}
+{{- if .IsNamedParams }}
+  {{- $heading = .Get "heading" }}
+  {{- with .Get "style" }}{{ $style = . }}{{ end }}
+  {{- with .Get "expand" }}{{ $expand = . }}{{ end }}
+{{- else }}
+  {{- $heading = .Get 0 }}
+  {{- with .Get 1 }}{{ $style = . }}{{ end }}
+  {{- with .Get 2 }}{{ $expand = . }}{{ end }}
+{{- end }}
+<div
+  class="collapse-wrapper border-2 border-start border-{{ $style }} ps-2 mb-3">
+  <p
+    class="collapse-toggle lead"
+    data-bs-toggle="collapse"
+    data-bs-target="#{{ $id }}"
+    aria-expanded="{{ cond $expand `true` `false` }}"
+    aria-controls="{{ $id }}">
+    {{ $heading }}
+  </p>
+  <div class="collapse mb-3{{ cond $expand ` show` `` }}" id="{{ $id }}">
+    {{ .Inner }}
+  </div>
+</div>
