@@ -1,2 +1,4 @@
 {{- $icon := partial "bootstrap/functions/alert-icon" . }}
-{{ partial "icons/icon" (dict "vendor" "bootstrap" "name" $icon "className" "alert-icon flex-shrink-0 me-2") . }}
+<div class="flex-shrink-0">
+  {{ partial "icons/icon" (dict "vendor" "bootstrap" "name" $icon "className" "alert-icon me-2") . }}
+</div>
