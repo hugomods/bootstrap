@@ -1,0 +1,4 @@
+{{- $aspect := default "16x9" (.Get 0) }}
+<div class="ratio ratio-{{ $aspect }}">
+  {{ .Inner }}
+</div>
