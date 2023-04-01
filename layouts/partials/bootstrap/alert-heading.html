@@ -1,0 +1,4 @@
+<div class="alert-heading h5 d-flex">
+  {{ partial "bootstrap/alert-icon" (cond .Parent.IsNamedParams (.Parent.Get "style") (.Parent.Get 0)) }}
+  {{ .Get 0 }}
+</div>

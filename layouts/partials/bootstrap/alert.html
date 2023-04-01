@@ -1,0 +1,13 @@
+{{- $style := "primary" }}
+{{- if .IsNamedParams }}
+  {{- with .Get "style" }}{{ $style = . }}{{ end }}
+{{- else }}
+  {{- with .Get 0 }}{{ $style = . }}{{ end }}
+{{- end }}
+<div class="alert alert-{{ $style }} d-flex" role="alert">
+  {{/* Output the icon if heading doesn't present. */}}
+  {{- if not (findRE `alert-heading` .Inner) }}
+    {{ partial "bootstrap/alert-icon" $style }}
+  {{- end }}
+  <div class="alert-content">{{ .Inner }}</div>
+</div>
