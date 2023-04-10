@@ -6,7 +6,7 @@
 {{- end }}
 {{- $data := partialCached "bootstrap/functions/data" $key $key }}
 {{- with $data }}
-  <div class="row g-4 py-5 row-cols-1 row-cols-md-2 row-cols-lg-3">
+  <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3">
     {{- range sort . "weight" }}
       <div class="col d-flex align-items-start mb-3">
         {{- with .icon }}
@@ -16,7 +16,13 @@
           </div>
         {{- end }}
         <div>
-          <div class="fw-bold mb-1 fs-4">{{ .title }}</div>
+          <div class="fw-bold mb-1 fs-4">
+            {{- if .url }}
+              <a class="text-decoration-none" href="{{ .url }}" target="_blank">{{ .title }}</a>
+            {{- else }}
+              {{- .title -}}
+            {{- end }}
+          </div>
           <p class="mb-0">{{ .description | markdownify }}</p>
         </div>
       </div>
