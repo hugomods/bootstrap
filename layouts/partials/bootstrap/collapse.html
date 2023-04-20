@@ -13,14 +13,15 @@
 {{- end }}
 <div
   class="collapse-wrapper border-2 border-start border-{{ $style }} ps-2 mb-3">
-  <button type="button"
-    class="collapse-toggle btn btn-sm btn-outline-{{ $style }}"
+  <a
+    type="button"
+    class="collapse-toggle text-decoration-none text-{{ $style }}"
     data-bs-toggle="collapse"
-    data-bs-target="#{{ $id }}"
+    href="#{{ $id }}"
     aria-expanded="{{ cond $expand `true` `false` }}"
     aria-controls="{{ $id }}">
-    {{ $heading }}
-  </button>
+    {{- $heading -}}
+  </a>
   <div class="collapse mt-2 mb-3{{ cond $expand ` show` `` }}" id="{{ $id }}">
     {{ .Inner }}
   </div>
