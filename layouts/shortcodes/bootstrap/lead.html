@@ -1,1 +1,2 @@
-{{ partial "bootstrap/lead" .Inner }}
+{{- if eq .Inner "" }}{{ end }}
+{{ partial "bootstrap/lead" . }}
