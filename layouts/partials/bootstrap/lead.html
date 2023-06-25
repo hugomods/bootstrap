@@ -1,5 +1,7 @@
 {{- $class := "" }}
 {{- if .IsNamedParams }}
   {{- with .Get "class" }}{{ $class = . }}{{ end }}
+{{- else }}
+  {{- with .Get 0 }}{{ $class = . }}{{ end }}
 {{- end }}
 <p class="lead{{ with $class }} {{ . }}{{ end }}">{{ .Inner }}</p>
