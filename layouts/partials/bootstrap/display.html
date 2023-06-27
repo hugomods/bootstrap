@@ -1,0 +1,12 @@
+{{- $level := 1 }}
+{{- $class := "" }}
+{{- if .IsNamedParams }}
+  {{- with .Get "level" }}{{ $level = . }}{{ end }}
+  {{- with .Get "class" }}{{ $class = . }}{{ end }}
+{{- else }}
+  {{- with .Get 0 }}{{ $level = . }}{{ end }}
+  {{- with .Get 1 }}{{ $class = . }}{{ end }}
+{{- end }}
+{{- $classes := printf "display-%d" $level | slice }}
+{{- with $class }}{{ $classes = $classes | append . }}{{ end }}
+<h1 class="{{ delimit $classes ` ` }}">{{ .Inner }}</h1>
