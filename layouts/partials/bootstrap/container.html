@@ -1,0 +1,19 @@
+{{- $breakpoint := "" }}
+{{- $class := "" }}
+{{- if .IsNamedParams }}
+  {{- $breakpoint = .Get "breakpoint" }}
+  {{- $class = .Get "class" }}
+{{- else }}
+  {{- $breakpoint = .Get 0 }}
+  {{- $class = .Get 1 }}
+{{- end }}
+{{- $classes := slice }}
+{{- if $breakpoint }}
+  {{- $classes = $classes | append (printf "container-%s" $breakpoint) }}
+{{- else }}
+  {{- $classes = $classes | append "container" }}
+{{- end }}
+{{- with $class }}{{ $classes = $classes | append . }}{{ end }}
+<div class="{{ delimit $classes ` ` }}">
+  {{ .Inner }}
+</div>
