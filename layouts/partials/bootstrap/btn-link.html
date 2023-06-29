@@ -1,0 +1,37 @@
+{{- $url := "" }}
+{{- $style := "primary" }}
+{{- $size := "" }}
+{{- $outline := false }}
+{{- $class := "" }}
+{{- if .IsNamedParams }}
+  {{- with .Get "url" }}{{ $url = . }}{{ end }}
+  {{- with .Get "style" }}{{ $style = . }}{{ end }}
+  {{- with .Get "outline" }}{{ $outline = . }}{{ end }}
+  {{- with .Get "size" }}{{ $size = . }}{{ end }}
+  {{- with .Get "class" }}{{ $class = . }}{{ end }}
+{{- else }}
+  {{- with .Get 0 }}{{ $url = . }}{{ end }}
+  {{- with .Get 1 }}{{ $style = . }}{{ end }}
+  {{- with .Get 2 }}{{ $outline = . }}{{ end }}
+  {{- with .Get 3 }}{{ $size = . }}{{ end }}
+{{- end }}
+{{- $uri := urls.Parse $url }}
+{{- $external := true }}
+{{- if not $uri.Scheme }}
+  {{- $external = false }}
+  {{- with .Page.GetPage $url }}
+    {{- $url = .RelPermalink }}
+  {{- else }}
+    {{- $url = relURL $url }}
+  {{- end }}
+{{- end }}
+{{- $classes := slice "btn" }}
+{{- $classes = $classes | append (printf (cond $outline "btn-outline-%s" "btn-%s") $style) }}
+{{- with $size }}{{ $classes = $classes | append (printf "btn-%s" .) }}{{ end }}
+{{- with $class }}{{ $classes = $classes | append . }}{{ end }}
+<a
+  class="{{ delimit $classes ` ` }}"
+  href="{{ $url }}"
+  {{ if $external }}target="_blank" rel="external"{{ end }}>
+  {{- .Inner -}}
+</a>
