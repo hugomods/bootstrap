@@ -1,0 +1,41 @@
+{{- $size := "" }}
+{{- $offset := "" }}
+{{- $class := "" }}
+{{- if .IsNamedParams }}
+  {{- with .Get "size" }}{{ $size = . }}{{ end }}
+  {{- with .Get "offset" }}{{ $offset = . }}{{ end }}
+  {{- with .Get "class" }}{{ $class = . }}{{ end }}
+{{- else }}
+  {{- with .Get 0 }}{{ $size = . }}{{ end }}
+  {{- with .Get 1 }}{{ $offset = . }}{{ end }}
+  {{- with .Get 2 }}{{ $class = . }}{{ end }}
+{{- end }}
+{{- $classes := slice }}
+{{- with $size }}
+  {{- $sizes := split . " " }}
+  {{- range $sizes }}
+    {{- $kv := split . ":" }}
+    {{- if gt (len $kv) 1 }}
+      {{- $classes = $classes | append (printf "col-%s-%s" (index $kv 0) (index $kv 1)) }}
+    {{- else }}
+      {{- $classes = $classes | append (printf "col-%s" .) }}
+    {{- end }}
+  {{- end }}
+{{- else }}
+  {{- $classes = $classes | append "col" }}
+{{- end }}
+{{- with $offset }}
+  {{- $offsets := split . " " }}
+  {{- range $offsets }}
+    {{- $kv := split . ":" }}
+    {{- if gt (len $kv) 1 }}
+      {{- $classes = $classes | append (printf "offset-%s-%s" (index $kv 0) (index $kv 1)) }}
+    {{- else }}
+      {{- $classes = $classes | append (printf "offset-%s" .) }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- with $class }}{{ $classes = $classes | append . }}{{ end }}
+<div class="{{ delimit $classes ` ` }}">
+  {{ .Inner }}
+</div>

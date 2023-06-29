@@ -1,0 +1,24 @@
+{{- $cols := "" }}
+{{- $class := "" }}
+{{- if .IsNamedParams }}
+  {{- with .Get "cols" }}{{ $class = . }}{{ end }}
+  {{- with .Get "class" }}{{ $class = . }}{{ end }}
+{{- else }}
+  {{- with .Get 0 }}{{ $cols = . }}{{ end }}
+  {{- with .Get 1 }}{{ $class = . }}{{ end }}
+{{- end }}
+{{- $classes := slice "row" }}
+{{- with $cols }}
+  {{- range split . " " }}
+    {{- $kv := split . ":" }}
+    {{- if gt (len $kv) 1 }}
+      {{- $classes = $classes | append (printf "row-cols-%s-%s" (index $kv 0) (index $kv 1)) }}
+    {{- else }}
+      {{- $classes = $classes | append (printf "row-cols-%s" .) }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- with $class }}{{ $classes = $classes | append . }}{{ end }}
+<div class="{{ delimit $classes ` ` }}">
+  {{ .Inner }}
+</div>
