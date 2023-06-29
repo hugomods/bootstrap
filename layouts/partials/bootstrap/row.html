@@ -1,7 +1,7 @@
 {{- $cols := "" }}
 {{- $class := "" }}
 {{- if .IsNamedParams }}
-  {{- with .Get "cols" }}{{ $class = . }}{{ end }}
+  {{- with .Get "cols" }}{{ $cols = . }}{{ end }}
   {{- with .Get "class" }}{{ $class = . }}{{ end }}
 {{- else }}
   {{- with .Get 0 }}{{ $cols = . }}{{ end }}
