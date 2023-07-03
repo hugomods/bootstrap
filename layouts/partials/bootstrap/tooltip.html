@@ -1,0 +1,21 @@
+{{- $text := "" }}
+{{- $title := "" }}
+{{- $url := "#" }}
+{{- $placement := "top" }}
+{{- if .IsNamedParams }}
+  {{- with .Get "text" }}{{ $text = . }}{{ end }}
+  {{- with .Get "title" }}{{ $title = . }}{{ end }}
+  {{- with .Get "url" }}{{ $url = . }}{{ end }}
+  {{- with .Get "placement" }}{{ $placement = . }}{{ end }}
+{{- else }}
+  {{- $text = .Get 0 }}
+  {{- $title = .Get 1 }}
+  {{- $url = .Get 2 }}
+{{- end }}
+<a
+  href="{{ $url }}"
+  data-bs-toggle="tooltip"
+  data-bs-placement="{{ $placement }}"
+  data-bs-title="{{ $title }}">
+  {{- $text -}}
+</a>
