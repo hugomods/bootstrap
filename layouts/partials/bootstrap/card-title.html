@@ -1,0 +1,11 @@
+{{- $level := 5 }}
+{{- $class := "" }}
+{{- if .IsNamedParams }}
+  {{- with .Get "level" }}{{ $level = . }}{{ end }}
+  {{- with .Get "class" }}{{ $class = . }}{{ end }}
+{{- else }}
+  {{- with .Get 0 }}{{ $level = . }}{{ end }}
+{{- end }}
+{{- $classes := slice "card-title" }}
+{{- with $class }}{{ $classes = $classes | append . }}{{ end }}
+{{ printf `<h%d class="%s">%s</h%s>` $level (delimit $classes " ") .Inner $level | safeHTML }}
