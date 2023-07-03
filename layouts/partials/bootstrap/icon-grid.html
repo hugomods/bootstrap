@@ -28,8 +28,10 @@
             {{- $link := .url }}
             {{- $url := urls.Parse .url }}
             {{- if not $url.Scheme }}
-              {{- with .Page.GetPage .url }}
+              {{- with site.GetPage .url }}
                 {{- $link = .RelPermalink }}
+              {{- else }}
+                {{- $link = relURL .url }}
               {{- end }}
             {{- end }}
             <p class="mt-auto pt-3 mb-0">
