@@ -1,0 +1,64 @@
+{{- $summaryLen := 120 }}
+{{- $limit := 12 }}
+{{- $sections := slice }}
+{{- if .IsNamedParams }}
+  {{- with .Get "limit" }}{{ $limit = . }}{{ end }}
+  {{- with .Get "summaryLen" }}{{ $summaryLen = . }}{{ end }}
+  {{- with .Get "sections" }}{{ $sections = split . "," }}{{ end }}
+{{- end }}
+{{- $pages := site.RegularPages }}
+{{- with $sections }}
+  {{- $pages = where $pages "Section" "in" . }}
+{{- end }}
+<div class="row g-3 row-cols-1 row-cols-md-2 row-cols-lg-3 mb-5">
+  {{- range first $limit $pages }}
+    <div class="col">
+      <div class="card shadow h-100 w-100 position-relativ">
+        {{- with .FirstSection }}
+          <a
+            href="{{ .RelPermalink }}"
+            class="z-1 badge text-bg-secondary position-absolute fw-normal top-0 start-0 ms-2 mt-2 text-decoration-none">
+            {{- .Title -}}
+          </a>
+        {{- end }}
+        <span
+          class="z-1 badge text-bg-secondary position-absolute fw-normal top-0 end-0 me-2 mt-2">
+          {{- .Date | time.Format ":date_medium" -}}
+        </span>
+        {{- $img := partial "images/functions/page-thumbnail" (dict
+          "Page" .
+          "ClassName" "card-img-top object-fit-cover bg-secondary-subtle"
+          "LazyLoading" false
+          "Style" (slice "height: 160px;"))
+        }}
+        {{- with $img }}
+          {{ . }}
+        {{- else }}
+          <div
+            class="card-img-top bg-secondary-subtle d-flex justify-content-center align-items-center h4 user-select-none"
+            style="height: 160px; filter: blur(1px);">
+            NO IMAGE
+          </div>
+        {{- end }}
+        <div class="card-body d-flex flex-column p-4 pt-2">
+          <div class="card-title h5">
+            {{- .Title -}}
+          </div>
+          <p class="card-text mb-0">
+            {{ truncate $summaryLen "..." .Summary }}
+          </p>
+          <p class="mt-auto mb-0">
+            <a class="text-decoration-none" href="{{ .RelPermalink }}">
+              {{- i18n "read_more" -}}
+              {{ partial "icons/icon" (dict
+                "vendor" "bootstrap"
+                "name" "arrow-right"
+                "className" "ms-1")
+              }}
+            </a>
+          </p>
+        </div>
+      </div>
+    </div>
+  {{- end }}
+</div>
