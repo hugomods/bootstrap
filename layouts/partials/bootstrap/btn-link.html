@@ -19,8 +19,10 @@
 {{- $external := true }}
 {{- if not $uri.Scheme }}
   {{- $external = false }}
-  {{- with .Page.GetPage $url }}
+  {{- with site.GetPage $url }}
     {{- $url = .RelPermalink }}
+  {{- else }}
+    {{- $url = relURL $url }}
   {{- end }}
 {{- end }}
 {{- $classes := slice "btn" }}
