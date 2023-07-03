@@ -44,9 +44,9 @@
           <div class="card-title h5">
             {{- .Title -}}
           </div>
-          <p class="card-text mb-0">
-            {{ truncate $summaryLen "..." .Summary }}
-          </p>
+          <div class="card-text mt-1 mb-0 text-body-secondary">
+            {{- truncate $summaryLen "..." .Summary -}}
+          </div>
           <p class="mt-auto mb-0">
             <a class="text-decoration-none" href="{{ .RelPermalink }}">
               {{- i18n "read_more" -}}
