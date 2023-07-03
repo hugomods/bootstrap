@@ -12,10 +12,10 @@
   {{- with .Get 2 }}{{ $expand = . }}{{ end }}
 {{- end }}
 <div
-  class="collapse-wrapper border-2 border-start border-{{ $style }} ps-2 mb-3">
+  class="collapse-wrapper border-2 border-start border-{{ $style }} ps-3 mb-3">
   <a
     type="button"
-    class="collapse-toggle text-decoration-none text-{{ $style }} border px-2 py-1"
+    class="collapse-toggle text-decoration-none text-{{ $style }} fw-bold"
     data-bs-toggle="collapse"
     href="#{{ $id }}"
     aria-expanded="{{ cond $expand `true` `false` }}"
