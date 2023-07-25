@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.0](https://github.com/hugomods/bootstrap/compare/v0.7.0...v0.8.0) (2023-07-25)
+
+
+### Features
+
+* **icon-grid:** add the linkText parameter ([d4e9219](https://github.com/hugomods/bootstrap/commit/d4e9219641389fa63b8095026ac466bf0f4aa8a3))
+
 ## [0.7.0](https://github.com/hugomods/bootstrap/compare/v0.6.2...v0.7.0) (2023-07-03)
 
 
