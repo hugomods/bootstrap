@@ -1,6 +1,8 @@
 {{- $key := "" }}
+{{- $linkText := i18n "learn_more" }}
 {{- if .IsNamedParams }}
   {{- $key = .Get "data" }}
+  {{- with .Get "linkText" }}{{ $linkText = . }}{{ end }}
 {{- else }}
   {{- $key = .Get 0 }}
 {{- end }}
@@ -39,7 +41,7 @@
                 class="text-decoration-none"
                 href="{{ $link }}"
                 {{ if $url.Scheme }}target="_blank" rel="external"{{ end }}>
-                {{- i18n "learn_more" -}}
+                {{- $linkText -}}
                 {{ partial "icons/icon" (dict
                   "vendor" "bootstrap"
                   "name" "arrow-right"
