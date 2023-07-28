@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.8.1](https://github.com/hugomods/bootstrap/compare/v0.8.0...v0.8.1) (2023-07-28)
+
+
+### Styles 🎨
+
+* **icon-grid:** change the margin-bottom as mb-3 for title ([#55](https://github.com/hugomods/bootstrap/issues/55)) ([679423a](https://github.com/hugomods/bootstrap/commit/679423aed064c464cf209447b1a6db10a20946ff))
+
 ## [0.8.0](https://github.com/hugomods/bootstrap/compare/v0.7.0...v0.8.0) (2023-07-25)
 
 
