@@ -43,7 +43,7 @@
             class="d-flex flex-column border rounded h-100 w-100 p-4 shadow text-decoration-none"
             href="{{ $link }}"
             {{ if $url.Scheme }}target="_blank" rel="external"{{ end }}>
-            <div class="fw-bold mb-2 fs-4 d-flex align-items-center">
+            <div class="fw-bold mb-3 fs-4 d-flex align-items-center">
               {{- $icon -}}{{- .title -}}
             </div>
             <p class="mb-0 text-body-secondary">
@@ -52,7 +52,7 @@
           </a>
         {{ else }}
           <div class="d-flex flex-column border rounded h-100 w-100 p-4 shadow">
-            <div class="fw-bold mb-2 fs-4 d-flex align-items-center">
+            <div class="fw-bold mb-3 fs-4 d-flex align-items-center">
               {{- $icon -}}{{- .title -}}
             </div>
             <p class="mb-0 text-body-secondary">
