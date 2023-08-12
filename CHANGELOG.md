@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.0](https://github.com/hugomods/bootstrap/compare/v0.8.1...v0.9.0) (2023-08-12)
+
+
+### Features ✨
+
+* add the accordion shortcode ([#58](https://github.com/hugomods/bootstrap/issues/58)) ([ef0fe96](https://github.com/hugomods/bootstrap/commit/ef0fe96557f9a63deb37fa0cb846f26a80d5db21))
+
 ## [0.8.1](https://github.com/hugomods/bootstrap/compare/v0.8.0...v0.8.1) (2023-07-28)
 
 
