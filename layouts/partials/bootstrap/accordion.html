@@ -1,0 +1,60 @@
+{{- $data := "" }}
+{{- $flush := false }}
+{{- $alwaysOpen := false }}
+{{- if .IsNamedParams }}
+  {{- $data = .Get "data" }}
+  {{- if isset .Params "flush" }}{{ $flush = .Get "flush" }}{{ end }}
+  {{- if isset .Params "alwaysOpen" }}
+    {{- $alwaysOpen = .Get "alwaysOpen" }}
+  {{- end }}
+{{- else }}
+  {{- $data = .Get 0 }}
+{{- end }}
+{{- $items := slice }}
+{{- $items := site.Data }}
+{{- range split $data "." }}
+    {{- with index $items . }}
+      {{- $items = . }}
+    {{- else }}
+      {{- $items = false }}
+      {{- break }}
+    {{- end }}
+{{- end }}
+{{- if not $data }}
+  {{- warnf `[bootstrap][accordion] the data name is required.` }}
+{{- else if eq $items false  }}
+  {{- warnf `[bootstrap][accordion] the data file is missing: %s.` $data }}
+{{- else }}
+  {{- $id := printf "accordion-%d-%s" .Ordinal $data }}
+  <div
+    class="accordion{{ cond $flush ` accordion-flush` `` }} mb-4"
+    id="{{ $id }}">
+    {{- $first := true }}
+    {{- range $name, $item := sort $items "weight" }}
+      {{- $show := cond (isset . "show") .show $first }}
+      {{- $itemID := printf "%s-%d" $id $name }}
+      <div class="accordion-item">
+        <h2 class="accordion-header">
+          <button
+            class="accordion-button{{ cond $show `` ` collapsed` }}"
+            type="button"
+            data-bs-toggle="collapse"
+            data-bs-target="#{{ $itemID }}"
+            {{ if $show }}aria-expanded="true"{{ end }}
+            aria-controls="{{ $itemID }}">
+            {{ .title }}
+          </button>
+        </h2>
+        <div
+          id="{{ $itemID }}"
+          class="accordion-collapse collapse{{ cond $show ` show` `` }}"
+          {{ if not $alwaysOpen }}data-bs-parent="#{{ $id }}"{{ end }}>
+          <div class="accordion-body">
+            {{ .content | markdownify }}
+          </div>
+        </div>
+      </div>
+      {{- $first = false }}
+    {{- end }}
+  </div>
+{{- end }}
