@@ -45,7 +45,7 @@
             {{- .Title -}}
           </div>
           <div class="card-text mt-1 mb-0 text-body-secondary">
-            {{- truncate $summaryLen "..." .Summary -}}
+            {{- truncate $summaryLen "..." (default .Summary .Description) -}}
           </div>
           <p class="mt-auto mb-0">
             <a class="text-decoration-none" href="{{ .RelPermalink }}">
