@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.9.1](https://github.com/hugomods/bootstrap/compare/v0.9.0...v0.9.1) (2023-08-26)
+
+
+### Bug Fixes 🐞
+
+* **article-cards:** use description as summary if present ([ad15f7d](https://github.com/hugomods/bootstrap/commit/ad15f7d3846f2ef557ba520287c3874c47b24c67))
+
 ## [0.9.0](https://github.com/hugomods/bootstrap/compare/v0.8.1...v0.9.0) (2023-08-12)
 
 
