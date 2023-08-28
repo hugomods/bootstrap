@@ -1,5 +1,16 @@
 # Changelog
 
+## [0.10.0](https://github.com/hugomods/bootstrap/compare/v0.9.1...v0.10.0) (2023-08-28)
+
+
+### Features ✨
+
+* **config-toggle:** add the bootstrap.config_toggle.langs parameter ([a5aa525](https://github.com/hugomods/bootstrap/commit/a5aa52548bdc61d40e1d2f086bcbdbb8e6b1bcb1)), closes [#61](https://github.com/hugomods/bootstrap/issues/61)
+* **config-toggle:** add the fill parameter ([caaa908](https://github.com/hugomods/bootstrap/commit/caaa9084b9e36c1d24f37bc8a267b44031b814cf))
+* **config-toggle:** add the style parameter: tabs, pills or underline ([b129e2c](https://github.com/hugomods/bootstrap/commit/b129e2c6430da03deff2a4480635c1b765dddd96))
+* **toggle:** add the alignment parameter: start, center or end ([b3f51cd](https://github.com/hugomods/bootstrap/commit/b3f51cdf96c2fa19cb6d3bdff4a8ac6303f20ec2))
+* **toggle:** add the fill parameter, default to true ([df8a070](https://github.com/hugomods/bootstrap/commit/df8a0706b275a8af92aaafef40255e864da754c2))
+
 ## [0.9.1](https://github.com/hugomods/bootstrap/compare/v0.9.0...v0.9.1) (2023-08-26)
 
 
