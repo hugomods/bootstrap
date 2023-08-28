@@ -1,5 +1,5 @@
 {{- $filename := "" -}}
-{{- $langs := slice "toml" "yaml" "json" }}
+{{- $langs := default (slice "toml" "yaml" "json") site.Params.bootstrap.config_toggle.langs }}
 {{- if .IsNamedParams }}
   {{- with .Get "filename" }}{{ $filename = . }}{{ end }}
   {{- with .Get "langs" }}{{ $langs = split . "," }}{{ end }}
