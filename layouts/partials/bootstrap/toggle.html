@@ -3,9 +3,11 @@
 {{- $name := "" }}
 {{- $style := "tabs" }}
 {{- $fill := true }}
+{{- $alignment := "" }}
 {{- if .IsNamedParams }}
   {{- $name = .Get "name" }}
   {{- with .Get "style" }}{{ $style = . }}{{ end }}
+  {{- with .Get "alignment" }}{{ $alignment = . }}{{ end }}
   {{- if isset .Params "fill" }}{{ $fill = .Get "fill" }}{{ end }}
 {{- else }}
   {{- $name = .Get 0 }}
@@ -13,9 +15,16 @@
 {{- end }}
 {{- $items := .Page.Store.Get (printf "toggle-%s-items" $name) }}
 {{- $items = sort $items "Weight" }}
+{{- $classes := slice
+  "nav"
+  "mb-2"
+  (printf "nav-%s" $style)
+}}
+{{- if $fill }}{{ $classes = $classes | append "nav-fill" }}{{ end }}
+{{- with $alignment }}{{ $classes = $classes | append (printf "justify-content-%s" .) }}{{ end }}
 <div class="toggle mb-3">
   <ul
-    class="nav nav-{{ $style }} mb-3{{ cond $fill ` nav-fill` `` }}"
+    class="{{ delimit $classes ` ` }}"
     id="toggle-{{ $name }}"
     role="tablist">
     {{- range $i, $item := $items }}
@@ -39,7 +48,7 @@
     {{- range $i, $item := $items }}
       {{- $idPrefix := printf "toggle-%s-%s" $name .Id }}
       <div
-        class="tab-pane fade{{ cond (eq $i 0) ` show active` `` }}"
+        class="tab-pane fade{{ cond (eq $i 0) ` show active` `` }}{{ cond (eq $alignment ``) `` (printf ` text-%s` $alignment) }}"
         id="{{ $idPrefix }}-tab-pane"
         role="tabpanel"
         aria-labelledby="{{ $idPrefix }}-tab"
