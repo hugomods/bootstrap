@@ -1,15 +1,17 @@
 {{- $filename := "" -}}
 {{- $langs := default (slice "toml" "yaml" "json") site.Params.bootstrap.config_toggle.langs }}
+{{- $style := "tabs" }}
 {{- if .IsNamedParams }}
   {{- with .Get "filename" }}{{ $filename = . }}{{ end }}
   {{- with .Get "langs" }}{{ $langs = split . "," }}{{ end }}
+  {{- with .Get "style" }}{{ $style = . }}{{ end }}
 {{- else }}
   {{- with .Get 0 }}{{ $filename = . }}{{ end }}
   {{- with .Get 1 }}{{ $langs = split . "," }}{{ end }}
 {{- end }}
 {{- $idPrefix := printf "%s-%s" (replaceRE "[\\|/]" "-" $filename) (delimit (shuffle (seq 1 9)) "") -}}
 <div class="config-toggle mb-3">
-  <ul class="nav nav-tabs mb-1" role="tablist">
+  <ul class="nav nav-{{ $style }} mb-1" role="tablist">
     {{- range $i, $lang := $langs -}}
       {{- $id := printf "code-toggle-%s-%s" $idPrefix $lang -}}
       <li class="nav-item mb-0" role="presentation">
