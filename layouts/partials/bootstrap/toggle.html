@@ -2,9 +2,11 @@
 {{- if eq .Inner "" }}{{ end }}
 {{- $name := "" }}
 {{- $style := "tabs" }}
+{{- $fill := true }}
 {{- if .IsNamedParams }}
   {{- $name = .Get "name" }}
   {{- with .Get "style" }}{{ $style = . }}{{ end }}
+  {{- if isset .Params "fill" }}{{ $fill = .Get "fill" }}{{ end }}
 {{- else }}
   {{- $name = .Get 0 }}
   {{- with .Get 1 }}{{ $style = . }}{{ end }}
@@ -13,7 +15,7 @@
 {{- $items = sort $items "Weight" }}
 <div class="toggle mb-3">
   <ul
-    class="nav nav-{{ $style }} nav-fill mb-3"
+    class="nav nav-{{ $style }} mb-3{{ cond $fill ` nav-fill` `` }}"
     id="toggle-{{ $name }}"
     role="tablist">
     {{- range $i, $item := $items }}
