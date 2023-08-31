@@ -1,28 +1,33 @@
 {{- $summaryLen := 120 }}
 {{- $limit := 12 }}
 {{- $sections := slice }}
+{{- $linkText := i18n "read_more" }}
 {{- if .IsNamedParams }}
   {{- with .Get "limit" }}{{ $limit = . }}{{ end }}
   {{- with .Get "summaryLen" }}{{ $summaryLen = . }}{{ end }}
   {{- with .Get "sections" }}{{ $sections = split . "," }}{{ end }}
+  {{- if isset .Params "linkText" }}{{ $linkText = .Get "linkText" }}{{ end }}
 {{- end }}
 {{- $pages := site.RegularPages }}
 {{- with $sections }}
   {{- $pages = where $pages "Section" "in" . }}
 {{- end }}
-<div class="row g-3 row-cols-1 row-cols-md-2 row-cols-lg-3 mb-5">
+<div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3 mb-5">
   {{- range first $limit $pages }}
-    <div class="col">
-      <div class="card shadow h-100 w-100 position-relativ">
+    {{- if $linkText }}
+      {{ print `<div class="col">` | safeHTML }}
+    {{- else }}
+      {{ printf `<a class="text-decoration-none" href="%s" title="%s">` .RelPermalink .Title | safeHTML }}
+    {{- end }}
+      <div class="card shadow h-100 w-100 position-relative">
         {{- with .FirstSection }}
-          <a
-            href="{{ .RelPermalink }}"
-            class="z-1 badge text-bg-secondary position-absolute fw-normal top-0 start-0 ms-2 mt-2 text-decoration-none">
+          <span
+            class="z-1 badge text-bg-secondary position-absolute fw-normal top-0 start-0 ms-1 mt-1 text-decoration-none">
             {{- .Title -}}
-          </a>
+          </span>
         {{- end }}
         <span
-          class="z-1 badge text-bg-secondary position-absolute fw-normal top-0 end-0 me-2 mt-2">
+          class="z-1 badge text-bg-secondary position-absolute fw-normal top-0 end-0 me-1 mt-1">
           {{- .Date | time.Format ":date_medium" -}}
         </span>
         {{- $img := partial "images/functions/page-thumbnail" (dict
@@ -41,24 +46,30 @@
           </div>
         {{- end }}
         <div class="card-body d-flex flex-column p-4">
-          <div class="card-title fw-bold h5">
+          <div class="card-title h5">
             {{- .Title -}}
           </div>
           <div class="card-text mt-1 mb-0 text-body-secondary">
             {{- truncate $summaryLen "..." (default .Summary .Description) -}}
           </div>
-          <p class="mt-auto mb-0">
-            <a class="text-decoration-none" href="{{ .RelPermalink }}">
-              {{- i18n "read_more" -}}
-              {{ partial "icons/icon" (dict
-                "vendor" "bootstrap"
-                "name" "arrow-right"
-                "className" "ms-1")
-              }}
-            </a>
-          </p>
+          {{- if $linkText }}
+            <p class="mt-auto mb-0">
+              <a class="text-decoration-none" href="{{ .RelPermalink }}">
+                {{- $linkText -}}
+                {{ partial "icons/icon" (dict
+                  "vendor" "bootstrap"
+                  "name" "arrow-right"
+                  "className" "ms-1")
+                }}
+              </a>
+            </p>
+          {{- end }}
         </div>
       </div>
-    </div>
+    {{- if $linkText }}
+      {{ print `</div>` | safeHTML }}
+    {{- else }}
+      {{ print "</a>" | safeHTML }}
+    {{- end }}
   {{- end }}
 </div>
