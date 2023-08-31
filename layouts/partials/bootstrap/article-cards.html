@@ -17,7 +17,7 @@
     {{- if $linkText }}
       {{ print `<div class="col">` | safeHTML }}
     {{- else }}
-      {{ printf `<a class="text-decoration-none" href="%s" title="%s">` .RelPermalink .Title | safeHTML }}
+      {{ printf `<a class="col text-decoration-none" href="%s" title="%s">` .RelPermalink .Title | safeHTML }}
     {{- end }}
       <div class="card shadow h-100 w-100 position-relative">
         {{- with .FirstSection }}
@@ -40,7 +40,7 @@
           {{ . }}
         {{- else }}
           <div
-            class="bg-secondary-subtle d-flex justify-content-center align-items-center h4 user-select-none mb-0"
+            class="bg-secondary-subtle d-flex justify-content-center align-items-center h4 user-select-none my-0"
             style="height: 160px; filter: blur(1px);">
             NO IMAGE
           </div>
