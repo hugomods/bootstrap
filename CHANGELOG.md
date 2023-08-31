@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.1](https://github.com/hugomods/bootstrap/compare/v0.11.0...v0.11.1) (2023-08-31)
+
+
+### Bug Fixes 🐞
+
+* **article-cards:** correct the margin ([e03ae88](https://github.com/hugomods/bootstrap/commit/e03ae88c32beca0094efec65097aaa3293e22b2b))
+
 ## [0.11.0](https://github.com/hugomods/bootstrap/compare/v0.10.0...v0.11.0) (2023-08-31)
 
 
