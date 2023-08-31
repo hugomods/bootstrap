@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.0](https://github.com/hugomods/bootstrap/compare/v0.10.0...v0.11.0) (2023-08-31)
+
+
+### Features ✨
+
+* **article-cards:** add the linkText parameter ([#65](https://github.com/hugomods/bootstrap/issues/65)) ([4cfa02a](https://github.com/hugomods/bootstrap/commit/4cfa02af10110c8c68e65c8f7c61d5bbbda06eef))
+
 ## [0.10.0](https://github.com/hugomods/bootstrap/compare/v0.9.1...v0.10.0) (2023-08-28)
 
 
