@@ -49,8 +49,8 @@
           <div class="card-title h5">
             {{- .Title -}}
           </div>
-          <div class="card-text mt-1 mb-0 text-body-secondary">
-            {{- truncate $summaryLen "..." (default .Summary .Description) -}}
+          <div class="card-text mt-1 text-body-secondary{{ cond (not $linkText) ` mb-0` ` mb-2` }}">
+            {{- truncate $summaryLen "..." (default .Summary .Description) | plainify | htmlUnescape -}}
           </div>
           {{- if $linkText }}
             <p class="mt-auto mb-0">
