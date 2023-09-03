@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.11.2](https://github.com/hugomods/bootstrap/compare/v0.11.1...v0.11.2) (2023-09-03)
+
+
+### Bug Fixes 🐞
+
+* **article-cards:** change the description margin-bottom as mb-2 when linkText is set ([#68](https://github.com/hugomods/bootstrap/issues/68)) ([5acdcb4](https://github.com/hugomods/bootstrap/commit/5acdcb440aaeb08624adac7dd714bba41867c770))
+
+
+### Styles 🎨
+
+* **article-cards:** strip HTML tags from description ([5acdcb4](https://github.com/hugomods/bootstrap/commit/5acdcb440aaeb08624adac7dd714bba41867c770))
+
 ## [0.11.1](https://github.com/hugomods/bootstrap/compare/v0.11.0...v0.11.1) (2023-08-31)
 
 
