@@ -34,7 +34,7 @@
   <div class="tab-content">
     {{- range $i, $lang := $langs -}}
       {{- $id := printf "code-toggle-%s-%s" $idPrefix $lang -}}
-      {{- $code := $.Inner | transform.Unmarshal | transform.Remarshal $lang -}}
+      {{- $code := $.Inner | htmlUnescape | transform.Unmarshal | transform.Remarshal $lang -}}
       {{- $code = replaceRE "\n+" "\n" $code -}}
       <div
         class="tab-pane fade{{ cond (eq $i 0) ` show active` `` }}"
