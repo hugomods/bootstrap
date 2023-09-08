@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.11.3](https://github.com/hugomods/bootstrap/compare/v0.11.2...v0.11.3) (2023-09-08)
+
+
+### Bug Fixes 🐞
+
+* **config-toggle:** unescape HTML chars from the inner ([#71](https://github.com/hugomods/bootstrap/issues/71)) ([e703561](https://github.com/hugomods/bootstrap/commit/e7035611e1a986a07bd6c41d372ceb4ac84bbeaa))
+
 ## [0.11.2](https://github.com/hugomods/bootstrap/compare/v0.11.1...v0.11.2) (2023-09-03)
 
 
