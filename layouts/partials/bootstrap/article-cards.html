@@ -3,12 +3,14 @@
 {{- $sections := slice }}
 {{- $linkText := i18n "read_more" }}
 {{- $itemAttrs := slice }}
+{{- $imgHeight := 120 }}
 {{- if .IsNamedParams }}
   {{- with .Get "limit" }}{{ $limit = . }}{{ end }}
   {{- with .Get "summaryLen" }}{{ $summaryLen = . }}{{ end }}
   {{- with .Get "sections" }}{{ $sections = split . "," }}{{ end }}
   {{- if isset .Params "linkText" }}{{ $linkText = .Get "linkText" }}{{ end }}
   {{- $itemAttrs = partial "bootstrap/functions/attributes" (dict "Params" .Params "Prefix" "item-attr") }}
+  {{- with .Get "imgHeight" }}{{ $imgHeight = . }}{{ end }}
 {{- end }}
 {{- $pages := site.RegularPages }}
 {{- with $sections }}
@@ -38,14 +40,14 @@
           "Page" .
           "ClassName" "card-img-top object-fit-cover bg-secondary-subtle"
           "LazyLoading" false
-          "Style" (slice "height: 160px;"))
+          "Style" (slice (printf "height: %dpx;" $imgHeight)))
         }}
         {{- with $img }}
           {{ . }}
         {{- else }}
           <div
             class="bg-secondary-subtle d-flex justify-content-center align-items-center h4 user-select-none my-0"
-            style="height: 160px; filter: blur(1px);">
+            style="height: {{ $imgHeight }}px; filter: blur(1px);">
             NO IMAGE
           </div>
         {{- end }}
