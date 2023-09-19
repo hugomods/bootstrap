@@ -18,12 +18,16 @@
       <div class="col">
         {{- $icon := "" }}
         {{- with .icon }}
-          {{- $icon = partial "icons/icon" (merge (dict
+          {{- $iconOpts := (merge (dict
             "width" "1.25em"
             "height" "1.25em"
             "vendor" "bootstrap"
             "className" "me-3") .)
           }}
+          {{- if isset . "className" }}
+            {{- $iconOpts = merge $iconOpts (dict "className" (printf "%s me-3" (.className)))}}
+          {{- end }}
+          {{- $icon = partial "icons/icon" $iconOpts }}
         {{- end }}
         {{- $link := "" }}
         {{- $url := "" }}
