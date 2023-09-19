@@ -11,7 +11,7 @@
 {{- else }}
   {{- $key = .Get 0 }}
 {{- end }}
-{{- $data := partialCached "bootstrap/functions/data" $key $key }}
+{{- $data := partialCached "bootstrap/functions/data" (dict "key" $key "page" .Page) .Page $key }}
 {{- with $data }}
   <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3 mb-5">
     {{- range sort . "weight" }}
