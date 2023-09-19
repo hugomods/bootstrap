@@ -1,10 +1,15 @@
-{{- $data := false }}
-{{- $siteData := site.Data }}
-{{- $keys := split . "." }}
-{{- range $keys }}
-  {{- with index $siteData . }}
-    {{- $siteData = . }}
-    {{- $data = . }}
+{{- $v := false }}
+{{- $key := replace .key "." "/" | printf "%s.{toml,yaml,yml,json}" }}
+{{- with .page.Resources.GetMatch $key }}
+  {{- $v = .Content | transform.Unmarshal }}
+{{- else }}
+  {{- $data := site.Data }}
+  {{- $keys := split .key "." }}
+  {{- range $keys }}
+    {{- with index $data . }}
+      {{- $data = . }}
+      {{- $v = . }}
+    {{- end }}
   {{- end }}
 {{- end }}
-{{- return $data -}}
+{{- return $v -}}
