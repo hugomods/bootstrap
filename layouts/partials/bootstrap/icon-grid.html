@@ -6,10 +6,12 @@
   "className" "ms-1")
 }}
 {{- $border := true }}
+{{- $alignment := "start" }}
 {{- if .IsNamedParams }}
   {{- $key = .Get "data" }}
   {{- if isset .Params "linkText" }}{{ $linkText = .Get "linkText" }}{{ end }}
   {{- if isset .Params "border" }}{{ $border = .Get "border" }}{{ end }}
+  {{- with .Get "alignment" }}{{ $alignment = . }}{{ end }}
 {{- else }}
   {{- $key = .Get 0 }}
 {{- end }}
@@ -46,10 +48,10 @@
         {{- end }}
         {{- if and $link (eq $linkText "") }}
           <a
-            class="d-flex flex-column rounded h-100 w-100 p-4 text-decoration-none{{ cond $border ` border shadow` `` }}"
+            class="d-flex flex-column rounded h-100 w-100 p-4 text-decoration-none{{ cond $border ` border shadow` `` }} text-{{ $alignment }}"
             href="{{ $link }}"
             {{ if $url.Scheme }}target="_blank" rel="external"{{ end }}>
-            <div class="fw-bold mb-3 fs-4 d-flex align-items-center">
+            <div class="fw-bold mb-3 fs-4 d-flex align-items-center justify-content-{{ $alignment }}">
               {{- $icon -}}{{- .title -}}
             </div>
             <p class="mb-0 text-body-secondary">
@@ -57,8 +59,8 @@
             </p>
           </a>
         {{ else }}
-          <div class="d-flex flex-column rounded h-100 w-100 p-4{{ cond $border ` border shadow` `` }}">
-            <div class="fw-bold mb-3 fs-4 d-flex align-items-center">
+          <div class="d-flex flex-column rounded h-100 w-100 p-4{{ cond $border ` border shadow` `` }} text-{{ $alignment }}">
+            <div class="fw-bold mb-3 fs-4 d-flex align-items-center justify-content-{{ $alignment }}">
               {{- $icon -}}{{- .title -}}
             </div>
             <p class="mb-0 text-body-secondary">
