@@ -1,0 +1,8 @@
+{{- $attrs := slice }}
+{{- $prefix := .Prefix | printf "%s-" }}
+{{- range $name, $value := .Params }}
+  {{- if hasPrefix $name $prefix }}
+    {{- $attrs = $attrs | append (printf "%s=%s" (strings.TrimPrefix $prefix $name) $value) }}
+  {{- end }}
+{{- end }}
+{{- return $attrs }}
