@@ -4,6 +4,7 @@
 {{- $linkText := i18n "read_more" }}
 {{- $itemAttrs := slice }}
 {{- $imgHeight := 120 }}
+{{- $imgPlaceholder := "NO IMAGE" }}
 {{- if .IsNamedParams }}
   {{- with .Get "limit" }}{{ $limit = . }}{{ end }}
   {{- with .Get "summaryLen" }}{{ $summaryLen = . }}{{ end }}
@@ -11,6 +12,7 @@
   {{- if isset .Params "linkText" }}{{ $linkText = .Get "linkText" }}{{ end }}
   {{- $itemAttrs = partial "bootstrap/functions/attributes" (dict "Params" .Params "Prefix" "item-attr") }}
   {{- with .Get "imgHeight" }}{{ $imgHeight = . }}{{ end }}
+  {{- with .Get "imgPlaceholder" }}{{ $imgPlaceholder = . }}{{ end }}
 {{- end }}
 {{- $pages := site.RegularPages }}
 {{- with $sections }}
@@ -48,7 +50,7 @@
           <div
             class="bg-secondary-subtle d-flex justify-content-center align-items-center h4 user-select-none my-0"
             style="height: {{ $imgHeight }}px; filter: blur(1px);">
-            NO IMAGE
+            {{ $imgPlaceholder }}
           </div>
         {{- end }}
         <div class="card-body d-flex flex-column p-4">
