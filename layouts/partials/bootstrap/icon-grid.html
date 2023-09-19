@@ -17,7 +17,7 @@
 {{- end }}
 {{- $data := partialCached "bootstrap/functions/data" (dict "key" $key "page" .Page) .Page $key }}
 {{- with $data }}
-  <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3 mb-5">
+  <div class="bs-icon-grid row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3 mb-5">
     {{- range sort . "weight" }}
       <div class="col">
         {{- $icon := "" }}
@@ -26,10 +26,10 @@
             "width" "1.25em"
             "height" "1.25em"
             "vendor" "bootstrap"
-            "className" "me-2") .)
+            "className" "bs-icon-grid-item-icon me-2") .)
           }}
           {{- if isset . "className" }}
-            {{- $iconOpts = merge $iconOpts (dict "className" (printf "%s me-2" (.className)))}}
+            {{- $iconOpts = merge $iconOpts (dict "className" (printf "bs-icon-grid-item-icon me-2 %s" (.className)))}}
           {{- end }}
           {{- $icon = partial "icons/icon" $iconOpts }}
         {{- end }}
@@ -48,22 +48,22 @@
         {{- end }}
         {{- if and $link (eq $linkText "") }}
           <a
-            class="d-flex flex-column rounded h-100 w-100 p-4 text-decoration-none{{ cond $border ` border shadow` `` }} text-{{ $alignment }}"
+            class="bs-icon-grid-item d-flex flex-column rounded h-100 w-100 p-4 text-decoration-none{{ cond $border ` border shadow` `` }} text-{{ $alignment }}"
             href="{{ $link }}"
             {{ if $url.Scheme }}target="_blank" rel="external"{{ end }}>
-            <div class="fw-bold mb-3 fs-4 d-flex align-items-center justify-content-{{ $alignment }}">
+            <div class="bs-icon-grid-item-title fw-bold mb-3 fs-4 d-flex align-items-center justify-content-{{ $alignment }}">
               {{- $icon -}}{{- .title -}}
             </div>
-            <p class="mb-0 text-body-secondary">
+            <p class="bs-icon-grid-item-desc mb-0 text-body-secondary">
               {{ .description | markdownify }}
             </p>
           </a>
         {{ else }}
-          <div class="d-flex flex-column rounded h-100 w-100 p-4{{ cond $border ` border shadow` `` }} text-{{ $alignment }}">
-            <div class="fw-bold mb-3 fs-4 d-flex align-items-center justify-content-{{ $alignment }}">
+          <div class="bs-icon-grid-item d-flex flex-column rounded h-100 w-100 p-4{{ cond $border ` border shadow` `` }} text-{{ $alignment }}">
+            <div class="bs-icon-grid-item-title fw-bold mb-3 fs-4 d-flex align-items-center justify-content-{{ $alignment }}">
               {{- $icon -}}{{- .title -}}
             </div>
-            <p class="mb-0 text-body-secondary">
+            <p class="bs-icon-grid-item-desc mb-0 text-body-secondary">
               {{ .description | markdownify }}
             </p>
             {{- with $link }}
