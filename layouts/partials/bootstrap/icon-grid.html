@@ -5,9 +5,11 @@
   "name" "arrow-right"
   "className" "ms-1")
 }}
+{{- $border := true }}
 {{- if .IsNamedParams }}
   {{- $key = .Get "data" }}
   {{- if isset .Params "linkText" }}{{ $linkText = .Get "linkText" }}{{ end }}
+  {{- if isset .Params "border" }}{{ $border = .Get "border" }}{{ end }}
 {{- else }}
   {{- $key = .Get 0 }}
 {{- end }}
@@ -44,7 +46,7 @@
         {{- end }}
         {{- if and $link (eq $linkText "") }}
           <a
-            class="d-flex flex-column border rounded h-100 w-100 p-4 shadow text-decoration-none"
+            class="d-flex flex-column rounded h-100 w-100 p-4 text-decoration-none{{ cond $border ` border shadow` `` }}"
             href="{{ $link }}"
             {{ if $url.Scheme }}target="_blank" rel="external"{{ end }}>
             <div class="fw-bold mb-3 fs-4 d-flex align-items-center">
@@ -55,7 +57,7 @@
             </p>
           </a>
         {{ else }}
-          <div class="d-flex flex-column border rounded h-100 w-100 p-4 shadow">
+          <div class="d-flex flex-column rounded h-100 w-100 p-4{{ cond $border ` border shadow` `` }}">
             <div class="fw-bold mb-3 fs-4 d-flex align-items-center">
               {{- $icon -}}{{- .title -}}
             </div>
