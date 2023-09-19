@@ -2,22 +2,26 @@
 {{- $limit := 12 }}
 {{- $sections := slice }}
 {{- $linkText := i18n "read_more" }}
+{{- $itemAttrs := slice }}
 {{- if .IsNamedParams }}
   {{- with .Get "limit" }}{{ $limit = . }}{{ end }}
   {{- with .Get "summaryLen" }}{{ $summaryLen = . }}{{ end }}
   {{- with .Get "sections" }}{{ $sections = split . "," }}{{ end }}
   {{- if isset .Params "linkText" }}{{ $linkText = .Get "linkText" }}{{ end }}
+  {{- $itemAttrs = partial "bootstrap/functions/attributes" (dict "Params" .Params "Prefix" "item-attr") }}
 {{- end }}
 {{- $pages := site.RegularPages }}
 {{- with $sections }}
   {{- $pages = where $pages "Section" "in" . }}
 {{- end }}
+{{- $itemAttrsStr := "" }}
+{{ with $itemAttrs }}{{ $itemAttrsStr = delimit . " " | printf " %s" }}{{ end }}
 <div class="row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3 mb-5">
   {{- range first $limit $pages }}
     {{- if $linkText }}
-      {{ print `<div class="col">` | safeHTML }}
+      {{ printf `<div class="col"%s>` $itemAttrsStr | safeHTML }}
     {{- else }}
-      {{ printf `<a class="col text-decoration-none" href="%s" title="%s">` .RelPermalink .Title | safeHTML }}
+      {{ printf `<a class="col text-decoration-none" href="%s" title="%s"%s>` .RelPermalink .Title $itemAttrsStr | safeHTML }}
     {{- end }}
       <div class="card shadow h-100 w-100 position-relative">
         {{- with .FirstSection }}
