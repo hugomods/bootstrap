@@ -1,5 +1,32 @@
 # Changelog
 
+## [0.12.0](https://github.com/hugomods/bootstrap/compare/v0.11.3...v0.12.0) (2023-09-20)
+
+
+### Features ✨
+
+* add the dropdowns shortcodes ([#77](https://github.com/hugomods/bootstrap/issues/77)) ([174cf65](https://github.com/hugomods/bootstrap/commit/174cf656cd3d76cf090550a1887150624dd835a3))
+* **article-cards:** add the imgHeight parameter ([d66590c](https://github.com/hugomods/bootstrap/commit/d66590c10b1052e26a40eeb1922ec28075b8a5db))
+* **article-cards:** add the imgPlaceholder parameter ([a2d4b77](https://github.com/hugomods/bootstrap/commit/a2d4b77fc83754b3360be063d6879efd03e52426))
+* **article-cards:** add the item-attr-* parameters for attaching attributes on elements ([7afc9ac](https://github.com/hugomods/bootstrap/commit/7afc9ac0637ed2013386a3b534fd6a0792d6538b))
+* **icon-grid:** add the alignment parameter, available options: start, center or end ([d941ba8](https://github.com/hugomods/bootstrap/commit/d941ba897875f4153c9b8c4dbba3f7467970e967))
+* **icon-grid:** add the border parameter ([cb61239](https://github.com/hugomods/bootstrap/commit/cb61239c0f606a1a7ce3554b7ad409de4f76f72f))
+* **icon-grid:** add the item-attr-* dynamic parameters for attaching custom attributes on items ([a6fca8f](https://github.com/hugomods/bootstrap/commit/a6fca8fcd4624c52e604033afeb83afab6859781))
+* **icon-grid:** assign the specified class names for elements to customize styles ([1c9c88a](https://github.com/hugomods/bootstrap/commit/1c9c88abd51527999a72ab0340d3dff3fb674658))
+* **icon-grid:** use the page data other than site data if found ([#74](https://github.com/hugomods/bootstrap/issues/74)) ([992d944](https://github.com/hugomods/bootstrap/commit/992d9443593610f161eb08ccb8e9dc221d2c41ba))
+
+
+### Bug Fixes 🐞
+
+* **btn-link:** correct the broken links related to the current page when the url not begin with a leading slash ([942f4d9](https://github.com/hugomods/bootstrap/commit/942f4d93599c4dfa03a9e92de09b5d92151a8a02))
+* **icon-grid:** add the default icon class name when className is provided ([#76](https://github.com/hugomods/bootstrap/issues/76)) ([b1782f0](https://github.com/hugomods/bootstrap/commit/b1782f0ca918e2fc2b7573c8b29aa0755f55e345))
+
+
+### Styles 🎨
+
+* change the image height as 120px by default ([d66590c](https://github.com/hugomods/bootstrap/commit/d66590c10b1052e26a40eeb1922ec28075b8a5db))
+* **icon-grid:** change the gap between of icons and titles to me-2 ([39ef018](https://github.com/hugomods/bootstrap/commit/39ef01883ae8955edc85c29700f9dd52c4f0d976))
+
 ## [0.11.3](https://github.com/hugomods/bootstrap/compare/v0.11.2...v0.11.3) (2023-09-08)
 
 
