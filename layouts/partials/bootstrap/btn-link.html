@@ -15,27 +15,14 @@
   {{- with .Get 2 }}{{ $outline = . }}{{ end }}
   {{- with .Get 3 }}{{ $size = . }}{{ end }}
 {{- end }}
-{{- $uri := urls.Parse $url }}
-{{- $external := true }}
-{{- if not $uri.Scheme }}
-  {{- $external = false }}
-  {{- with site.GetPage $url }}
-    {{- $url = .RelPermalink }}
-  {{- else }}
-    {{- if hasPrefix $url "/" }}
-      {{- $url = relURL $url }}
-    {{- else }}
-      {{- $url = printf "%s%s" .Page.RelPermalink $url }}
-    {{- end }}
-  {{- end }}
-{{- end }}
+{{- $uri := partial "bootstrap/functions/url" (dict "URL" $url "Page" .Page) }}
 {{- $classes := slice "btn" }}
 {{- $classes = $classes | append (printf (cond $outline "btn-outline-%s" "btn-%s") $style) }}
 {{- with $size }}{{ $classes = $classes | append (printf "btn-%s" .) }}{{ end }}
 {{- with $class }}{{ $classes = $classes | append . }}{{ end }}
 <a
   class="{{ delimit $classes ` ` }}"
-  href="{{ $url }}"
-  {{ if $external }}target="_blank" rel="external"{{ end }}>
+  href="{{ $uri.URL }}"
+  {{ if $uri.External }}target="_blank" rel="external"{{ end }}>
   {{- .Inner -}}
 </a>

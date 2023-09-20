@@ -1,0 +1,18 @@
+{{- $url := "" }}
+{{- $text := "" }}
+{{- if .IsNamedParams }}
+  {{- $text = .Get "text" }}
+  {{- $url = .Get "url" }}
+{{- else }}
+  {{- $text = .Get 0 }}
+  {{- $url = .Get 1 }}
+{{- end }}
+{{- $uri := partial "bootstrap/functions/url" (dict "URL" $url "Page" .Page) }}
+<li>
+  <a
+    class="dropdown-item"
+    href="{{ $uri.URL }}"
+    {{ if $uri.External }}target="_blank" rel="external"{{ end }}>
+    {{ $text }}
+  </a>
+</li>
