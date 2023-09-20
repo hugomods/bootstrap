@@ -1,0 +1,25 @@
+{{- $name := "" }}
+{{- $style := "primary" }}
+{{- $size := "" }}
+{{- $items := slice }}
+{{- if .IsNamedParams }}
+  {{- $name = .Get "name" }}
+  {{- with .Get "style" }}{{ $style = . }}{{ end }}
+  {{- with .Get "size" }}{{ $size = . }}{{ end }}
+{{- else }}
+  {{- $name = .Get 0 }}
+  {{- with .Get 1 }}{{ $style = . }}{{ end }}
+  {{- with .Get 2 }}{{ $size = . }}{{ end }}
+{{- end }}
+<div class="dropdown">
+  <button
+    type="button"
+    class="btn btn-{{ $style }} dropdown-toggle{{ with $size }} btn-{{ . }}{{ end }}"
+    data-bs-toggle="dropdown"
+    aria-expanded="false">
+    {{ $name }}
+  </button>
+  <ul class="dropdown-menu">
+    {{ .Inner }}
+  </ul>
+</div>

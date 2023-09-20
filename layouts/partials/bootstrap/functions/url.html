@@ -1,0 +1,16 @@
+{{- $url := .URL }}
+{{- $uri := urls.Parse $url }}
+{{- $external := true }}
+{{- if not $uri.Scheme }}
+  {{- $external = false }}
+  {{- with site.GetPage $url }}
+    {{- $url = .RelPermalink }}
+  {{- else }}
+    {{- if hasPrefix $url "/" }}
+      {{- $url = relURL $url }}
+    {{- else }}
+      {{- $url = printf "%s%s" .Page.RelPermalink $url }}
+    {{- end }}
+  {{- end }}
+{{- end }}
+{{- return (dict "External" $external "URL" $url) }}
