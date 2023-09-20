@@ -22,7 +22,11 @@
   {{- with site.GetPage $url }}
     {{- $url = .RelPermalink }}
   {{- else }}
-    {{- $url = relURL $url }}
+    {{- if hasPrefix $url "/" }}
+      {{- $url = relURL $url }}
+    {{- else }}
+      {{- $url = printf "%s%s" .Page.RelPermalink $url }}
+    {{- end }}
   {{- end }}
 {{- end }}
 {{- $classes := slice "btn" }}
