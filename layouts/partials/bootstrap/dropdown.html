@@ -2,18 +2,21 @@
 {{- $style := "primary" }}
 {{- $size := "" }}
 {{- $class := "" }}
+{{- $toggle := true }}
 {{- $items := slice }}
 {{- if .IsNamedParams }}
   {{- $name = .Get "name" }}
   {{- with .Get "style" }}{{ $style = . }}{{ end }}
   {{- with .Get "size" }}{{ $size = . }}{{ end }}
   {{- with .Get "class" }}{{ $class = . }}{{ end }}
+  {{- if isset .Params "toggle" }}{{ $toggle = .Get "toggle" }}{{ end }}
 {{- else }}
   {{- $name = .Get 0 }}
   {{- with .Get 1 }}{{ $style = . }}{{ end }}
   {{- with .Get 2 }}{{ $size = . }}{{ end }}
 {{- end }}
-{{- $classes := slice "btn" (printf "btn-%s" $style) "dropdown-toggle" }}
+{{- $classes := slice "btn" (printf "btn-%s" $style) }}
+{{- if $toggle }}{{ $classes = $classes | append "dropdown-toggle" }}{{ end }}
 {{- with $size }}{{ $classes = $classes | append (printf "btn-%s" .) }}{{ end }}
 {{- with $class }}{{ $classes = $classes | append $class }}{{ end }}
 <div class="dropdown">
