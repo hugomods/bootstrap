@@ -3,12 +3,16 @@
 {{- $size := "" }}
 {{- $class := "" }}
 {{- $toggle := true }}
+{{- $icon := "" }}
+{{- $iconVendor := "bootstrap" }}
 {{- if .IsNamedParams }}
   {{- $name = .Get "name" }}
   {{- with .Get "style" }}{{ $style = . }}{{ end }}
   {{- with .Get "size" }}{{ $size = . }}{{ end }}
   {{- with .Get "class" }}{{ $class = . }}{{ end }}
   {{- if isset .Params "toggle" }}{{ $toggle = .Get "toggle" }}{{ end }}
+  {{- with .Get "icon" }}{{ $icon = . }}{{ end }}
+  {{- with .Get "iconVendor" }}{{ $iconVendor = . }}{{ end }}
 {{- else }}
   {{- $name = .Get 0 }}
   {{- with .Get 1 }}{{ $style = . }}{{ end }}
@@ -24,6 +28,14 @@
     class="{{ delimit $classes ` ` }}"
     data-bs-toggle="dropdown"
     aria-expanded="false">
+    {{- with $icon }}
+      {{ partial "icons/icon" (dict
+        "vendor" $iconVendor
+        "name" $icon
+        "height" "1em"
+        "width" "1em"
+        "className" "me-1") }}
+    {{- end }}
     {{ $name }}
   </button>
   <ul class="dropdown-menu">
