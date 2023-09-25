@@ -3,7 +3,6 @@
 {{- $size := "" }}
 {{- $class := "" }}
 {{- $toggle := true }}
-{{- $items := slice }}
 {{- if .IsNamedParams }}
   {{- $name = .Get "name" }}
   {{- with .Get "style" }}{{ $style = . }}{{ end }}
