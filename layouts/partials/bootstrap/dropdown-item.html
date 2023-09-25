@@ -1,8 +1,12 @@
 {{- $url := "" }}
 {{- $text := "" }}
+{{- $icon := "" }}
+{{- $iconVendor := "bootstrap" }}
 {{- if .IsNamedParams }}
   {{- $text = .Get "text" }}
   {{- $url = .Get "url" }}
+  {{- with .Get "icon" }}{{ $icon = . }}{{ end }}
+  {{- with .Get "iconVendor" }}{{ $iconVendor = . }}{{ end }}
 {{- else }}
   {{- $text = .Get 0 }}
   {{- $url = .Get 1 }}
@@ -13,6 +17,14 @@
     class="dropdown-item"
     href="{{ $uri.URL }}"
     {{ if $uri.External }}target="_blank" rel="external"{{ end }}>
+    {{- with $icon }}
+      {{ partial "icons/icon" (dict
+        "vendor" $iconVendor
+        "name" $icon
+        "height" "1em"
+        "width" "1em"
+        "className" "me-1") }}
+    {{- end }}
     {{ $text }}
   </a>
 </li>
