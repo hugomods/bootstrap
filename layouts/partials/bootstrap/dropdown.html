@@ -1,20 +1,25 @@
 {{- $name := "" }}
 {{- $style := "primary" }}
 {{- $size := "" }}
+{{- $class := "" }}
 {{- $items := slice }}
 {{- if .IsNamedParams }}
   {{- $name = .Get "name" }}
   {{- with .Get "style" }}{{ $style = . }}{{ end }}
   {{- with .Get "size" }}{{ $size = . }}{{ end }}
+  {{- with .Get "class" }}{{ $class = . }}{{ end }}
 {{- else }}
   {{- $name = .Get 0 }}
   {{- with .Get 1 }}{{ $style = . }}{{ end }}
   {{- with .Get 2 }}{{ $size = . }}{{ end }}
 {{- end }}
+{{- $classes := slice "btn" (printf "btn-%s" $style) "dropdown-toggle" }}
+{{- with $size }}{{ $classes = $classes | append (printf "btn-%s" .) }}{{ end }}
+{{- with $class }}{{ $classes = $classes | append $class }}{{ end }}
 <div class="dropdown">
   <button
     type="button"
-    class="btn btn-{{ $style }} dropdown-toggle{{ with $size }} btn-{{ . }}{{ end }}"
+    class="{{ delimit $classes ` ` }}"
     data-bs-toggle="dropdown"
     aria-expanded="false">
     {{ $name }}
