@@ -1,5 +1,15 @@
 # Changelog
 
+## [0.13.0](https://github.com/hugomods/bootstrap/compare/v0.12.0...v0.13.0) (2023-09-25)
+
+
+### Features ✨
+
+* **dropdown-item:** add the icon and iconVendor parameters ([#83](https://github.com/hugomods/bootstrap/issues/83)) ([ebdb7fe](https://github.com/hugomods/bootstrap/commit/ebdb7fe9e9b10ea19ca5f480ebc4faae1848d4f6))
+* **dropdown:** add the class parameter to specify the extra class names ([#79](https://github.com/hugomods/bootstrap/issues/79)) ([7888b2a](https://github.com/hugomods/bootstrap/commit/7888b2af98fce93c3c40fead1b4f93d71bef7457))
+* **dropdown:** add the icon and iconVendor parameters ([#82](https://github.com/hugomods/bootstrap/issues/82)) ([006f3c1](https://github.com/hugomods/bootstrap/commit/006f3c1b8ba4e33cdfda869e4f76ff721ac2be30))
+* **dropdown:** add the toggle parameter for showing/hiding the dropdown toggle ([#81](https://github.com/hugomods/bootstrap/issues/81)) ([41d6449](https://github.com/hugomods/bootstrap/commit/41d6449d1a5b03690c84afce0fbbbeb6fd75e612))
+
 ## [0.12.0](https://github.com/hugomods/bootstrap/compare/v0.11.3...v0.12.0) (2023-09-20)
 
 
