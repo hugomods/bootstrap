@@ -30,12 +30,12 @@
       <div class="card shadow h-100 w-100 position-relative">
         {{- with .FirstSection }}
           <span
-            class="z-1 badge text-bg-secondary position-absolute fw-normal top-0 start-0 ms-1 mt-1 text-decoration-none">
+            class="z-1 badge rounded-1 text-bg-secondary opacity-75 position-absolute fw-normal top-0 start-0 ms-2 mt-2 text-decoration-none">
             {{- .Title -}}
           </span>
         {{- end }}
         <span
-          class="z-1 badge text-bg-secondary position-absolute fw-normal top-0 end-0 me-1 mt-1">
+          class="z-1 badge rounded-1 text-bg-secondary opacity-75 position-absolute fw-normal top-0 end-0 me-2 mt-2">
           {{- .Date | time.Format ":date_medium" -}}
         </span>
         {{- $img := partial "images/functions/page-thumbnail" (dict
