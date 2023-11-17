@@ -1,5 +1,23 @@
 # Changelog
 
+## [0.14.0](https://github.com/hugomods/bootstrap/compare/v0.13.0...v0.14.0) (2023-11-17)
+
+
+### Features ✨
+
+* **article-cards:** add the bootstrap.article_cards.limit and bootstrap.article_cards.image_height parameter ([a878fba](https://github.com/hugomods/bootstrap/commit/a878fba8c9911522db3731d112858027ac559168))
+
+
+### Performance Improvements ⚡️
+
+* **config-toggle:** caching the unmarshal source code ([#88](https://github.com/hugomods/bootstrap/issues/88)) ([c703a35](https://github.com/hugomods/bootstrap/commit/c703a35be33e66aaa4255e535de33da67ec72a6a))
+
+
+### Styles 🎨
+
+* **article-cards:** change the image height as 240 ([37e5bf0](https://github.com/hugomods/bootstrap/commit/37e5bf07e7ec7dd41525eba7ce0a5e96d75f8e6f))
+* tweak article cards section and date ([b767395](https://github.com/hugomods/bootstrap/commit/b7673959765898e484cda52b45d72fd43f3331bf))
+
 ## [0.13.0](https://github.com/hugomods/bootstrap/compare/v0.12.0...v0.13.0) (2023-09-25)
 
 
