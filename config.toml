@@ -9,3 +9,7 @@ path = "github.com/hugomods/images"
 
 [params.bootstrap.config_toggle]
 langs = ["toml", "yaml", "json"]
+
+[params.bootstrap.article_cards]
+limit = 12
+image_height = 240

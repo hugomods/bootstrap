@@ -1,9 +1,9 @@
 {{- $summaryLen := 120 }}
-{{- $limit := 12 }}
+{{- $limit := default 12 site.Params.bootstrap.article_cards.limit }}
 {{- $sections := slice }}
 {{- $linkText := i18n "read_more" }}
 {{- $itemAttrs := slice }}
-{{- $imgHeight := 240 }}
+{{- $imgHeight := default 240 site.Params.bootstrap.article_cards.image_height }}
 {{- $imgPlaceholder := "NO IMAGE" }}
 {{- if .IsNamedParams }}
   {{- with .Get "limit" }}{{ $limit = . }}{{ end }}
