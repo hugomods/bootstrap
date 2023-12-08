@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.15.0](https://github.com/hugomods/bootstrap/compare/v0.14.0...v0.15.0) (2023-12-08)
+
+
+### Features ✨
+
+* **config-toggle:** allow specifying title ([#95](https://github.com/hugomods/bootstrap/issues/95)) ([980bb9f](https://github.com/hugomods/bootstrap/commit/980bb9f6e08df3fc4fd73c473b9ced87c2d75593))
+* **config-toggle:** allow wrapping code with delimiters ([#96](https://github.com/hugomods/bootstrap/issues/96)) ([33ed9bb](https://github.com/hugomods/bootstrap/commit/33ed9bbd32bdac7586140d8a31465761d3065bf5))
+* **toggle:** allow reading items from data file ([#97](https://github.com/hugomods/bootstrap/issues/97)) ([6417763](https://github.com/hugomods/bootstrap/commit/6417763d1809950d058d1f15ea6434a2d61b6ebc))
+
+
+### Bug Fixes 🐞
+
+* correct URL parsing ([4cee395](https://github.com/hugomods/bootstrap/commit/4cee39542d5c5220b6e2106502a42db6610d8f79))
+
 ## [0.14.0](https://github.com/hugomods/bootstrap/compare/v0.13.0...v0.14.0) (2023-11-17)
 
 
