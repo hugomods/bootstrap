@@ -8,8 +8,8 @@
   {{- else }}
     {{- if hasPrefix $url "/" }}
       {{- $url = relURL $url }}
-    {{- else }}
-      {{- $url = printf "%s%s" .Page.RelPermalink $url }}
+    {{- else if not (hasPrefix $url "#") }}
+      {{- $url = printf "%s%s" .Page.Permalink $url }}
     {{- end }}
   {{- end }}
 {{- end }}
