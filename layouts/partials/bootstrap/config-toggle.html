@@ -3,12 +3,14 @@
 {{- $style := "tabs" }}
 {{- $fill := false }}
 {{- $title := "" }}
+{{- $delimiter := false }}
 {{- if .IsNamedParams }}
   {{- with .Get "filename" }}{{ $filename = . }}{{ end }}
   {{- with .Get "langs" }}{{ $langs = split . "," }}{{ end }}
   {{- with .Get "style" }}{{ $style = . }}{{ end }}
   {{- with .Get "fill" }}{{ $fill = . }}{{ end }}
   {{- with .Get "title" }}{{ $title = . }}{{ end }}
+  {{- with .Get "delimiter" }}{{ $delimiter = . }}{{ end }}
 {{- else }}
   {{- with .Get 0 }}{{ $filename = . }}{{ end }}
   {{- with .Get 1 }}{{ $langs = split . "," }}{{ end }}
@@ -46,9 +48,17 @@
   <div class="tab-content">
     {{- $src := $.Inner | htmlUnescape | transform.Unmarshal }}
     {{- range $i, $lang := $langs -}}
+      {{- $lang = lower $lang }}
       {{- $id := printf "code-toggle-%s-%s" $idPrefix $lang -}}
       {{- $code := $src | transform.Remarshal $lang -}}
       {{- $code = replaceRE "\n+" "\n" $code -}}
+      {{- if $delimiter }}
+        {{- if eq $lang "toml" }}
+          {{- $code = printf "+++\n%s+++\n" $code }}
+        {{- else if eq $lang "yaml" }}
+           {{- $code = printf "---\n%s---\n" $code }}
+        {{- end }}
+      {{- end }}
       <div
         class="tab-pane fade{{ cond (eq $i 0) ` show active` `` }}"
         id="{{ $id }}"
