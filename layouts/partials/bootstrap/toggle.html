@@ -4,17 +4,32 @@
 {{- $style := "tabs" }}
 {{- $fill := true }}
 {{- $alignment := "" }}
+{{- $data := "" }}
 {{- if .IsNamedParams }}
   {{- $name = .Get "name" }}
   {{- with .Get "style" }}{{ $style = . }}{{ end }}
   {{- with .Get "alignment" }}{{ $alignment = . }}{{ end }}
   {{- if isset .Params "fill" }}{{ $fill = .Get "fill" }}{{ end }}
+  {{- with .Get "data" }}{{ $data = . }}{{ end }}
 {{- else }}
   {{- $name = .Get 0 }}
   {{- with .Get 1 }}{{ $style = . }}{{ end }}
+  {{- with .Get 2 }}{{ $data = . }}{{ end }}
 {{- end }}
-{{- $items := .Page.Store.Get (printf "toggle-%s-items" $name) }}
-{{- $items = sort $items "Weight" }}
+{{- $items := slice }}
+{{- with $data }}
+  {{- with partial "bootstrap/functions/data" (dict "key" $data) }}
+    {{- $items = . }}
+  {{- end }}
+{{- else }}
+  {{- with .Page.Store.Get (printf "toggle-%s-items" $name) }}
+    {{- $items = . }}
+  {{- end }}
+{{- end }}
+{{- if not $items }}
+  {{- warnf "[toggle] no items specified for %q." $name }}
+{{- end }}
+{{- $items = sort $items "weight" }}
 {{- $classes := slice
   "nav"
   "mb-2"
@@ -28,7 +43,7 @@
     id="toggle-{{ $name }}"
     role="tablist">
     {{- range $i, $item := $items }}
-      {{- $idPrefix := printf "toggle-%s-%s" $name .Id }}
+      {{- $idPrefix := printf "toggle-%s-%s" $name .name | anchorize }}
       <li class="nav-item" role="presentation">
         <button
           class="nav-link{{ cond (eq $i 0) ` active` `` }}"
@@ -39,21 +54,21 @@
           role="tab"
           aria-controls="{{ $idPrefix }}-tab-pane"
           aria-selected="{{ cond (eq $i 0) `true` `false` }}">
-          {{ .Name }}
+          {{ .name }}
         </button>
       </li>
     {{- end }}
   </ul>
   <div class="tab-content" id="toggle-{{ $name }}-content">
     {{- range $i, $item := $items }}
-      {{- $idPrefix := printf "toggle-%s-%s" $name .Id }}
+      {{- $idPrefix := printf "toggle-%s-%s" $name .name | anchorize }}
       <div
         class="tab-pane fade{{ cond (eq $i 0) ` show active` `` }}{{ cond (eq $alignment ``) `` (printf ` text-%s` $alignment) }}"
         id="{{ $idPrefix }}-tab-pane"
         role="tabpanel"
         aria-labelledby="{{ $idPrefix }}-tab"
         tabindex="0">
-        {{ .Inner }}
+        {{ cond (ne $data "") (.inner | markdownify) .inner }}
       </div>
     {{- end }}
   </div>

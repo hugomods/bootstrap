@@ -2,9 +2,8 @@
 {{- $itemName := cond .IsNamedParams (.Get "name") (.Get 0) }}
 {{- $itemId := replace $itemName " " "-" | lower }}
 {{- $key := printf "toggle-%s-items" $toggleName }}
-{{- .Page.Store.SetInMap $key $itemId (dict
-  "Id" $itemId
-  "Name" $itemName
-  "Inner" .Inner
-  "Weight" .Ordinal)
+{{- .Page.Store.SetInMap $key $itemName (dict
+  "name" $itemName
+  "inner" .Inner
+  "weight" .Ordinal)
 -}}
