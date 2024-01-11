@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.15.1](https://github.com/hugomods/bootstrap/compare/v0.15.0...v0.15.1) (2024-01-11)
+
+
+### Bug Fixes 🐞
+
+* **accordion:** escape invalid chars ([#101](https://github.com/hugomods/bootstrap/issues/101)) ([30b41d8](https://github.com/hugomods/bootstrap/commit/30b41d8338d0f3de8e58cbd50b7e9ff93a7b9967))
+
 ## [0.15.0](https://github.com/hugomods/bootstrap/compare/v0.14.0...v0.15.0) (2023-12-08)
 
 
