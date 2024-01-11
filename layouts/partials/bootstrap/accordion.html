@@ -25,14 +25,14 @@
 {{- else if eq $items false  }}
   {{- warnf `[bootstrap][accordion] the data file is missing: %s.` $data }}
 {{- else }}
-  {{- $id := printf "accordion-%d-%s" .Ordinal $data }}
+  {{- $id := printf "accordion-%d-%s" .Ordinal $data | anchorize }}
   <div
     class="accordion{{ cond $flush ` accordion-flush` `` }} mb-4"
     id="{{ $id }}">
     {{- $first := true }}
     {{- range $name, $item := sort $items "weight" }}
       {{- $show := cond (isset . "show") .show $first }}
-      {{- $itemID := printf "%s-%d" $id $name }}
+      {{- $itemID := printf "%s-%d" $id $name | anchorize }}
       <div class="accordion-item">
         <h2 class="accordion-header">
           <button
