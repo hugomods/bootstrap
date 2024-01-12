@@ -55,6 +55,15 @@
             {{ with $itemAttrs }}{{ delimit . " " | safeHTMLAttr }}{{ end }}
             {{ if $url.Scheme }}target="_blank" rel="external"{{ end }}>
             <div class="bs-icon-grid-item-title fw-bold mb-3 fs-4 d-flex align-items-center justify-content-{{ $alignment }}">
+              {{- with .image }}
+                {{- $imageOpts := (merge (dict
+                    "ClassName" "bs-icon-grid-item-image") .)
+                }}
+                {{- if isset . "ClassName" }}
+                    {{- $imageOpts = merge $imageOpts (dict "ClassName" (printf "bs-icon-grid-item-image %s" (.ClassName)))}}
+                {{- end }}
+                {{- partial "images/image" $imageOpts }}
+              {{- end -}}
               {{- $icon -}}{{- .title -}}
             </div>
             <p class="bs-icon-grid-item-desc mb-0 text-body-secondary">
@@ -68,12 +77,10 @@
             <div class="bs-icon-grid-item-title fw-bold mb-3 fs-4 d-flex align-items-center justify-content-{{ $alignment }}">
               {{- with .image }}
                 {{- $imageOpts := (merge (dict
-                    "width" "1.25em"
-                    "height" "1.25em"
-                    "className" "bs-icon-grid-item-image me-2") .)
+                    "ClassName" "bs-icon-grid-item-image") .)
                 }}
-                {{- if isset . "className" }}
-                    {{- $imageOpts = merge $imageOpts (dict "className" (printf "bs-icon-grid-item-image me-2 %s" (.className)))}}
+                {{- if isset . "ClassName" }}
+                    {{- $imageOpts = merge $imageOpts (dict "ClassName" (printf "bs-icon-grid-item-image %s" (.ClassName)))}}
                 {{- end }}
                 {{- partial "images/image" $imageOpts }}
               {{- end -}}
