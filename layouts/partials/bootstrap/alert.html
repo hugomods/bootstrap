@@ -9,5 +9,7 @@
   {{- if not (findRE `alert-heading` .Inner) }}
     {{ partial "bootstrap/alert-icon" $style }}
   {{- end }}
-  <div class="alert-content">{{ .Inner }}</div>
+  <div class="alert-content">
+    {{ .Inner }}
+  </div>
 </div>
