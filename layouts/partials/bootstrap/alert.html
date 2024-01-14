@@ -4,7 +4,7 @@
 {{- else }}
   {{- with .Get 0 }}{{ $style = . }}{{ end }}
 {{- end }}
-<div class="alert alert-{{ $style }} d-flex" role="alert">
+<div class="alert alert-{{ $style }} clearfix" role="alert">
   {{/* Output the icon if heading doesn't present. */}}
   {{- if not (findRE `alert-heading` .Inner) }}
     {{ partial "bootstrap/alert-icon" $style }}
