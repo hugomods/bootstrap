@@ -1,5 +1,19 @@
 # Changelog
 
+## [0.17.0](https://github.com/hugomods/bootstrap/compare/v0.16.0...v0.17.0) (2024-01-14)
+
+
+### Features ✨
+
+* **alert:** simplify usage with Markdown content ([#111](https://github.com/hugomods/bootstrap/issues/111)) ([ce8ace1](https://github.com/hugomods/bootstrap/commit/ce8ace1cc328df59d992c80f3ff34b382e4c289b))
+* **btn-link:** add the text parameter, to use self-closing syntax ([#110](https://github.com/hugomods/bootstrap/issues/110)) ([0351562](https://github.com/hugomods/bootstrap/commit/03515624c3130f9133c5435c97ef9a25910562de))
+* **icon-grid:** add the gap parameter, default to 4 ([#108](https://github.com/hugomods/bootstrap/issues/108)) ([3707afa](https://github.com/hugomods/bootstrap/commit/3707afa3f7cb6040bcab25610f4b57f0aa05e40f))
+
+
+### Styles 🎨
+
+* **alert:** float the icon to the start ([#112](https://github.com/hugomods/bootstrap/issues/112)) ([0054951](https://github.com/hugomods/bootstrap/commit/005495129e50e378624068a8202790e4540a75a4))
+
 ## [0.16.0](https://github.com/hugomods/bootstrap/compare/v0.15.1...v0.16.0) (2024-01-13)
 
 
