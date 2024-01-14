@@ -7,19 +7,21 @@
 }}
 {{- $border := true }}
 {{- $alignment := "start" }}
+{{- $gap := 4 }}
 {{- $itemAttrs := slice }}
 {{- if .IsNamedParams }}
   {{- $key = .Get "data" }}
   {{- if isset .Params "linkText" }}{{ $linkText = .Get "linkText" }}{{ end }}
   {{- if isset .Params "border" }}{{ $border = .Get "border" }}{{ end }}
   {{- with .Get "alignment" }}{{ $alignment = . }}{{ end }}
+  {{- with .Get "gap" }}{{ $gap = . }}{{ end }}
   {{- $itemAttrs = partial "bootstrap/functions/attributes" (dict "Params" .Params "Prefix" "item-attr") }}
 {{- else }}
   {{- $key = .Get 0 }}
 {{- end }}
 {{- $data := partialCached "bootstrap/functions/data" (dict "key" $key "page" .Page) .Page $key }}
 {{- with $data }}
-  <div class="bs-icon-grid row g-4 row-cols-1 row-cols-md-2 row-cols-lg-3 mb-5">
+  <div class="bs-icon-grid row g-{{ $gap }} row-cols-1 row-cols-md-2 row-cols-lg-3 mb-5">
     {{- range sort . "weight" }}
       <div class="col">
         {{- $icon := "" }}
