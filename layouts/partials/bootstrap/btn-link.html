@@ -3,12 +3,14 @@
 {{- $size := "" }}
 {{- $outline := false }}
 {{- $class := "" }}
+{{- $text := .Inner }}
 {{- if .IsNamedParams }}
   {{- with .Get "url" }}{{ $url = . }}{{ end }}
   {{- with .Get "style" }}{{ $style = . }}{{ end }}
   {{- with .Get "outline" }}{{ $outline = . }}{{ end }}
   {{- with .Get "size" }}{{ $size = . }}{{ end }}
   {{- with .Get "class" }}{{ $class = . }}{{ end }}
+  {{- with .Get "text" }}{{ $text = . }}{{ end }}
 {{- else }}
   {{- with .Get 0 }}{{ $url = . }}{{ end }}
   {{- with .Get 1 }}{{ $style = . }}{{ end }}
@@ -24,5 +26,5 @@
   class="{{ delimit $classes ` ` }}"
   href="{{ $uri.URL }}"
   {{ if $uri.External }}target="_blank" rel="external"{{ end }}>
-  {{- .Inner -}}
+  {{- $text -}}
 </a>
