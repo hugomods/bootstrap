@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.17.1](https://github.com/hugomods/bootstrap/compare/v0.17.0...v0.17.1) (2024-02-20)
+
+
+### Bug Fixes 🐞
+
+* **img-grid:** make sure using the proper .Page ([#116](https://github.com/hugomods/bootstrap/issues/116)) ([a71cdd3](https://github.com/hugomods/bootstrap/commit/a71cdd33016a6d028ce8360f364a639d86455fd3))
+
 ## [0.17.0](https://github.com/hugomods/bootstrap/compare/v0.16.0...v0.17.0) (2024-01-14)
 
 
