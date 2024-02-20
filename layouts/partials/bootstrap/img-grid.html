@@ -4,11 +4,13 @@
 {{- else }}
   {{- $key = .Get 0 }}
 {{- end }}
+{{- $page := .Page }}
 {{- $data := partialCached "bootstrap/functions/data" (dict "key" $key "page" .Page) .Page $key }}
 {{- with $data }}
 <div class="d-flex bs-img-grid flex-wrap gap-1 justify-content-center">
   {{- range . }}
     {{- $img := partial "images/image" (dict
+      "Page" $page
       "Filename" .src
       "ClassName" "bs-img-grid-item-img"
       "Alt" .title
