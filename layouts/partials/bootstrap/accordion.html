@@ -10,17 +10,8 @@
 {{- else }}
   {{- $data = .Get 0 }}
 {{- end }}
-{{- $items := slice }}
-{{- $items := site.Data }}
-{{- range split $data "." }}
-    {{- with index $items . }}
-      {{- $items = . }}
-    {{- else }}
-      {{- $items = false }}
-      {{- break }}
-    {{- end }}
-{{- end }}
-{{- if not $data }}
+{{- $items := partial "bootstrap/functions/data" (dict "key" $data "page" .Page) }}
+{{- if not $items }}
   {{- warnf `[bootstrap][accordion] the data name is required.` }}
 {{- else if eq $items false  }}
   {{- warnf `[bootstrap][accordion] the data file is missing: %s.` $data }}
