@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.17.3](https://github.com/hugomods/bootstrap/compare/v0.17.2...v0.17.3) (2024-02-23)
+
+
+### Bug Fixes 🐞
+
+* **accordion:** allow using page data resources ([0b0249b](https://github.com/hugomods/bootstrap/commit/0b0249b0b164d536be7e9b094f873ebc95e6dce0))
+
 ## [0.17.2](https://github.com/hugomods/bootstrap/compare/v0.17.1...v0.17.2) (2024-02-23)
 
 
