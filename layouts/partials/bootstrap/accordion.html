@@ -34,9 +34,9 @@
       {{- $show := cond (isset . "show") .show $first }}
       {{- $itemID := printf "%s-%d" $id $name | anchorize }}
       <div class="accordion-item">
-        <h2 class="accordion-header">
+        <h3 class="accordion-header">
           <button
-            class="accordion-button{{ cond $show `` ` collapsed` }}"
+            class="accordion-button fw-bold{{ cond $show `` ` collapsed` }}"
             type="button"
             data-bs-toggle="collapse"
             data-bs-target="#{{ $itemID }}"
@@ -44,7 +44,7 @@
             aria-controls="{{ $itemID }}">
             {{ .title }}
           </button>
-        </h2>
+        </h3>
         <div
           id="{{ $itemID }}"
           class="accordion-collapse collapse{{ cond $show ` show` `` }}"
