@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.17.2](https://github.com/hugomods/bootstrap/compare/v0.17.1...v0.17.2) (2024-02-23)
+
+
+### Styles 🎨
+
+* **accordion:** change heading level to 3 from 2, and change heading font-weight as bold ([a3c267b](https://github.com/hugomods/bootstrap/commit/a3c267b78ba08592fe192be214430587274cf3a3))
+
 ## [0.17.1](https://github.com/hugomods/bootstrap/compare/v0.17.0...v0.17.1) (2024-02-20)
 
 
