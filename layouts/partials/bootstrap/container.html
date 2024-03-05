@@ -1,8 +1,10 @@
 {{- $breakpoint := "" }}
 {{- $class := "" }}
+{{- $bg := "" }}
 {{- if .IsNamedParams }}
   {{- $breakpoint = .Get "breakpoint" }}
   {{- $class = .Get "class" }}
+  {{- $bg = .Get "bg" }}
 {{- else }}
   {{- $breakpoint = .Get 0 }}
   {{- $class = .Get 1 }}
@@ -14,6 +16,23 @@
   {{- $classes = $classes | append "container" }}
 {{- end }}
 {{- with $class }}{{ $classes = $classes | append . }}{{ end }}
-<div class="{{ delimit $classes ` ` }}">
+{{- $style := slice }}
+{{- if ne $bg "" }}
+  {{- $classes = $classes | append "" }}
+  {{- with .Page.Resources.Get $bg }}
+    {{- $bg = .RelPermalink }}
+  {{- else }}
+    {{- with resources.Get $bg }}
+      {{- $bg = .RelPermalink }}
+    {{- end }}
+  {{- end }}
+  {{- $style = $style | append
+    (printf "background-image: url(%s)" $bg)
+    (printf "background-size: cover" $bg)
+  }}
+{{- end }}
+<div
+  class="{{ delimit $classes ` ` }}"
+  {{ with $style }}{{ delimit . `;` | printf `style="%s"` | safeHTMLAttr }}{{ end }}>
   {{ .Inner }}
 </div>
