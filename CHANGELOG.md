@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.0](https://github.com/hugomods/bootstrap/compare/v0.17.3...v0.18.0) (2024-03-05)
+
+
+### Features ✨
+
+* **container:** add the bg parameter, supports site resources, page resources, internal images and external images ([#123](https://github.com/hugomods/bootstrap/issues/123)) ([ff5581c](https://github.com/hugomods/bootstrap/commit/ff5581cb39a9d1ebf04916ed2ba04b1c40632786))
+
 ## [0.17.3](https://github.com/hugomods/bootstrap/compare/v0.17.2...v0.17.3) (2024-02-23)
 
 
