@@ -28,7 +28,7 @@
   {{- end }}
   {{- $style = $style | append
     (printf "background-image: url(%s)" $bg)
-    (printf "background-size: cover" $bg)
+    "background-size: cover"
   }}
 {{- end }}
 <div
