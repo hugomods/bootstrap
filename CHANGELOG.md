@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.1](https://github.com/hugomods/bootstrap/compare/v0.18.0...v0.18.1) (2024-03-06)
+
+
+### Styles 🎨
+
+* **icon-grid:** align items to center ([1686908](https://github.com/hugomods/bootstrap/commit/168690813be0a253d3157283e2ffb750db795048))
+
 ## [0.18.0](https://github.com/hugomods/bootstrap/compare/v0.17.3...v0.18.0) (2024-03-05)
 
 
