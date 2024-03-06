@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.2](https://github.com/hugomods/bootstrap/compare/v0.18.1...v0.18.2) (2024-03-06)
+
+
+### Bug Fixes 🐞
+
+* **container:** background-size ([11f5494](https://github.com/hugomods/bootstrap/commit/11f54944c259aa91957b4887ff0bb42406a9ca24))
+
 ## [0.18.1](https://github.com/hugomods/bootstrap/compare/v0.18.0...v0.18.1) (2024-03-06)
 
 
