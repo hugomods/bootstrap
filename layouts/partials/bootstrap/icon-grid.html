@@ -21,7 +21,7 @@
 {{- end }}
 {{- $data := partialCached "bootstrap/functions/data" (dict "key" $key "page" .Page) .Page $key }}
 {{- with $data }}
-  <div class="bs-icon-grid row g-{{ $gap }} row-cols-1 row-cols-md-2 row-cols-lg-3 mb-5">
+  <div class="bs-icon-grid row g-{{ $gap }} row-cols-1 row-cols-md-2 row-cols-lg-3 mb-5 justify-content-center">
     {{- range sort . "weight" }}
       <div class="col">
         {{- $icon := "" }}
