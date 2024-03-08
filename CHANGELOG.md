@@ -1,5 +1,13 @@
 # Changelog
 
+## [0.18.4](https://github.com/hugomods/bootstrap/compare/v0.18.3...v0.18.4) (2024-03-08)
+
+
+### Bug Fixes 🐞
+
+* **alter-heading:** add title named parameter ([c8739b0](https://github.com/hugomods/bootstrap/commit/c8739b0696b2acf68c43e788da69cda29be71196))
+* **alter-link:** add named parameters: text and url ([2dcba71](https://github.com/hugomods/bootstrap/commit/2dcba71d4c5fed7147bd6a7bc3733363479b1824))
+
 ## [0.18.3](https://github.com/hugomods/bootstrap/compare/v0.18.2...v0.18.3) (2024-03-08)
 
 
