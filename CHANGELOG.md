@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.5](https://github.com/hugomods/bootstrap/compare/v0.18.4...v0.18.5) (2024-03-08)
+
+
+### Bug Fixes 🐞
+
+* **accordion:** make id to be unique in the case of using multiple accordions on one page ([c47af19](https://github.com/hugomods/bootstrap/commit/c47af190de1d8de1252a8105c50773214eee8b95))
+
 ## [0.18.4](https://github.com/hugomods/bootstrap/compare/v0.18.3...v0.18.4) (2024-03-08)
 
 
