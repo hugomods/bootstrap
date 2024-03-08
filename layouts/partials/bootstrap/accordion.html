@@ -16,7 +16,7 @@
 {{- else if eq $items false  }}
   {{- warnf `[bootstrap][accordion] the data file is missing: %s.` $data }}
 {{- else }}
-  {{- $id := printf "accordion-%d-%s" .Ordinal $data | anchorize }}
+  {{- $id := printf "accordion-%d-%s" time.Now.UnixMicro $data | anchorize }}
   <div
     class="accordion{{ cond $flush ` accordion-flush` `` }} mb-4"
     id="{{ $id }}">
