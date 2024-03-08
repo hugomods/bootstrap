@@ -1,1 +1,10 @@
-<a href="{{ .Get 1 }}" class="alert-link">{{ .Get 0 }}</a>
+{{- $text := "" }}
+{{- $url := "" }}
+{{- if .IsNamedParams }}
+  {{- $text = .Get "text" }}
+  {{- $url = .Get "url" }}
+{{- else }}
+  {{- $text = .Get 0 }}
+  {{- $url = .Get 1 }}
+{{- end }}
+<a href="{{ $url }}" class="alert-link">{{ $text }}</a>
