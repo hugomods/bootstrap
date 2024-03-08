@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.18.3](https://github.com/hugomods/bootstrap/compare/v0.18.2...v0.18.3) (2024-03-08)
+
+
+### Styles 🎨
+
+* **article-cards:** align articles to center ([8d0fadb](https://github.com/hugomods/bootstrap/commit/8d0fadbe304514729347cf3cb313be910d413e72))
+
 ## [0.18.2](https://github.com/hugomods/bootstrap/compare/v0.18.1...v0.18.2) (2024-03-06)
 
 
