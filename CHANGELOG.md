@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.19.0](https://github.com/hugomods/bootstrap/compare/v0.18.5...v0.19.0) (2024-03-10)
+
+
+### Features ✨
+
+* **container:** add the bgColor parameter ([b221430](https://github.com/hugomods/bootstrap/commit/b22143037b0a877ee282c29f116fbaea5e2768a4))
+
 ## [0.18.5](https://github.com/hugomods/bootstrap/compare/v0.18.4...v0.18.5) (2024-03-08)
 
 
