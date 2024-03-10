@@ -1,10 +1,12 @@
 {{- $breakpoint := "" }}
 {{- $class := "" }}
 {{- $bg := "" }}
+{{- $bgColor := "" }}
 {{- if .IsNamedParams }}
   {{- $breakpoint = .Get "breakpoint" }}
   {{- $class = .Get "class" }}
   {{- $bg = .Get "bg" }}
+  {{- $bgColor = .Get "bgColor" }}
 {{- else }}
   {{- $breakpoint = .Get 0 }}
   {{- $class = .Get 1 }}
@@ -30,6 +32,9 @@
     (printf "background-image: url(%s)" $bg)
     "background-size: cover"
   }}
+{{- end }}
+{{- with $bgColor }}
+  {{- $style = $style | append (printf "background-color: %s" .) }}
 {{- end }}
 <div
   class="{{ delimit $classes ` ` }}"
