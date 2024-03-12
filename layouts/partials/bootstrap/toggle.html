@@ -18,7 +18,7 @@
 {{- end }}
 {{- $items := slice }}
 {{- with $data }}
-  {{- with partial "bootstrap/functions/data" (dict "key" $data) }}
+  {{- with partial "base/functions/data" (dict "key" $data) }}
     {{- $items = . }}
   {{- end }}
 {{- else }}
