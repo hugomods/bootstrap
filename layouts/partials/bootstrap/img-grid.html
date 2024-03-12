@@ -5,7 +5,7 @@
   {{- $key = .Get 0 }}
 {{- end }}
 {{- $page := .Page }}
-{{- $data := partialCached "bootstrap/functions/data" (dict "key" $key "page" .Page) .Page $key }}
+{{- $data := partialCached "base/functions/data" (dict "key" $key "page" .Page) .Page $key }}
 {{- with $data }}
 <div class="d-flex bs-img-grid flex-wrap gap-1 justify-content-center">
   {{- range . }}
