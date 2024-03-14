@@ -1,0 +1,41 @@
+{{- $key := "" }}
+{{- $listClass := slice "bs-list" }}
+{{- $class := slice "" }}
+{{- $unstyled := false }}
+{{- $detailsIcon := partial "icons/icon" (dict "vendor" "bs" "name" "question-circle" "className" "ms-1") }}
+{{- $iconSize := "1em" }}
+{{- if .IsNamedParams }}
+  {{- $key = .Get "data" }}
+  {{- with .Get "unstyled" }}{{ $unstyled = . }}{{ end }}
+  {{- with .Get "listClass" }}
+    {{- $listClass = $listClass | append . }}
+  {{- end }}
+{{- else }}
+  {{- $key = .Get 0 }}
+{{- end }}
+{{- if $unstyled }}
+  {{- $listClass = $listClass | append "list-unstyled" }}
+{{- end }}
+{{- $data := partialCached "base/functions/data" (dict "key" $key "page" .Page) .Page $key }}
+{{- with $data }}
+  <ul class="{{ delimit $listClass ` ` }}">
+    {{- range . }}
+      <li class="hb-list-item mb-2">
+        <span
+          class="{{ delimit $class ` ` }}">
+          {{- with .icon }}
+            {{- $iconCtx := merge (dict "className" "me-1" "size" $iconSize) . }}
+            {{- with index . "className" }}
+              {{- $iconCtx = merge $iconCtx (dict "className" (printf "me-1 %s" .)) }}
+            {{- end }}
+            {{ partial "icons/icon" $iconCtx }}
+          {{- end }}
+          {{- .text | $.Page.RenderString -}}
+          {{- with .details }}
+            <span title="{{ . }}" data-bs-toggle="tooltip" data-bs-placement="right">{{ $detailsIcon }}</span>
+          {{- end }}
+        </span>
+      </li>
+    {{- end }}
+  </ul>
+{{- end }}
