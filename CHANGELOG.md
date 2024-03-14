@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.20.0](https://github.com/hugomods/bootstrap/compare/v0.19.0...v0.20.0) (2024-03-14)
+
+
+### Features ✨
+
+* add the list shortcode ([#137](https://github.com/hugomods/bootstrap/issues/137)) ([f132ac6](https://github.com/hugomods/bootstrap/commit/f132ac6ffa82c209e9c2e61f0d4469098a02969d))
+
 ## [0.19.0](https://github.com/hugomods/bootstrap/compare/v0.18.5...v0.19.0) (2024-03-10)
 
 
