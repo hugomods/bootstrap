@@ -1,28 +1,19 @@
-{{- $id := printf "collapse-%d" now.UnixNano }}
-{{- $heading := "" }}
-{{- $style := "primary" }}
-{{- $expand := false }}
-{{- if .IsNamedParams }}
-  {{- $heading = .Get "heading" }}
-  {{- with .Get "style" }}{{ $style = . }}{{ end }}
-  {{- with .Get "expand" }}{{ $expand = . }}{{ end }}
-{{- else }}
-  {{- $heading = .Get 0 }}
-  {{- with .Get 1 }}{{ $style = . }}{{ end }}
-  {{- with .Get 2 }}{{ $expand = . }}{{ end }}
-{{- end }}
-<div
-  class="collapse-wrapper border-2 border-start border-{{ $style }} ps-3 mb-3">
-  <a
-    type="button"
-    class="collapse-toggle text-decoration-none text-{{ $style }} fw-bold"
-    data-bs-toggle="collapse"
-    href="#{{ $id }}"
-    aria-expanded="{{ cond $expand `true` `false` }}"
-    aria-controls="{{ $id }}">
-    {{- $heading -}}
-  </a>
-  <div class="collapse mt-2 mb-3{{ cond $expand ` show` `` }}" id="{{ $id }}">
-    {{ .Inner }}
-  </div>
-</div>
+{{- $id := printf "collapse-%d" now.UnixNano -}}
+{{- $heading := "" -}}
+{{- $style := "primary" -}}
+{{- $expand := false -}}
+{{- if .IsNamedParams -}}
+  {{- $heading = .Get "heading" -}}
+  {{- with .Get "style" }}{{ $style = . }}{{ end -}}
+  {{- with .Get "expand" }}{{ $expand = . }}{{ end -}}
+{{- else -}}
+  {{- $heading = .Get 0 -}}
+  {{- with .Get 1 }}{{ $style = . }}{{ end -}}
+  {{- with .Get 2 }}{{ $expand = . }}{{ end -}}
+{{- end -}}
+{{- $heading := printf
+  `<a type="button" class="collapse-toggle text-decoration-none text-%s fw-bold" data-bs-toggle="collapse" href="#%s" aria-expanded="%s" aria-controls="%s">%s</a>`
+  $style $id (cond $expand `true` `false`) $id $heading
+}}
+{{- $inner := printf `<div class="collapse mt-2 mb-3%s" id="%s">%s</div>` (cond $expand ` show` ``) $id .Inner }}
+{{- printf `<div class="collapse-wrapper border-2 border-start border-%s ps-3 mb-3">%s%s</div>` $style $heading $inner | safeHTML }}
