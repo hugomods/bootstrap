@@ -12,8 +12,8 @@
   {{- with .Get 2 }}{{ $expand = . }}{{ end -}}
 {{- end -}}
 {{- $heading := printf
-  `<a type="button" class="collapse-toggle text-decoration-none text-%s fw-bold" data-bs-toggle="collapse" href="#%s" aria-expanded="%s" aria-controls="%s">%s</a>`
+  `<a type="button" class="collapse-toggle text-decoration-none text-bg-%s px-2" data-bs-toggle="collapse" href="#%s" aria-expanded="%s" aria-controls="%s">%s</a>`
   $style $id (cond $expand `true` `false`) $id $heading
 }}
-{{- $inner := printf `<div class="collapse mt-2 mb-3%s" id="%s">%s</div>` (cond $expand ` show` ``) $id .Inner }}
-{{- printf `<div class="collapse-wrapper border-2 border-start border-%s ps-3 mb-3">%s%s</div>` $style $heading $inner | safeHTML }}
+{{- $inner := printf `<div class="collapse ps-2 pt-2 mb-3 border-top border-start border-%s%s" id="%s">%s</div>` $style (cond $expand ` show` ``) $id .Inner }}
+{{- printf `<div class="collapse-wrapper mb-3">%s%s</div>` $heading $inner | safeHTML }}
