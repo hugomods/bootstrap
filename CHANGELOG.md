@@ -1,5 +1,17 @@
 # Changelog
 
+## [0.20.1](https://github.com/hugomods/bootstrap/compare/v0.20.0...v0.20.1) (2024-03-20)
+
+
+### Bug Fixes 🐞
+
+* **collapse:** allow nesting within the list ([c2d3c0a](https://github.com/hugomods/bootstrap/commit/c2d3c0a92a16c6fa0f563882f8215f602ad6edef))
+
+
+### Styles 🎨
+
+* **collapse:** tweak the button style ([244c356](https://github.com/hugomods/bootstrap/commit/244c356b39c60d172c65e5e1f64ffdd43f5bff75))
+
 ## [0.20.0](https://github.com/hugomods/bootstrap/compare/v0.19.0...v0.20.0) (2024-03-14)
 
 
