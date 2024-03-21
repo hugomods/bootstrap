@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.21.1](https://github.com/hugomods/bootstrap/compare/v0.21.0...v0.21.1) (2024-03-21)
+
+
+### Styles 🎨
+
+* **collapse:** change the margin-bottom to mb-1 ([7352ea4](https://github.com/hugomods/bootstrap/commit/7352ea41f81ae542ba4e0fbb114e820aef4b1107))
+
 ## [0.21.0](https://github.com/hugomods/bootstrap/compare/v0.20.1...v0.21.0) (2024-03-21)
 
 
