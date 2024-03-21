@@ -1,5 +1,22 @@
 # Changelog
 
+## [0.21.0](https://github.com/hugomods/bootstrap/compare/v0.20.1...v0.21.0) (2024-03-21)
+
+
+### Features ✨
+
+* **collapse:** add the border and rounded named parameters ([dab07c4](https://github.com/hugomods/bootstrap/commit/dab07c4790c72b948c52bf32b201dfecba49153e))
+
+
+### Bug Fixes 🐞
+
+* **collapse:** use .Page.RenderString to render .Inner ([#143](https://github.com/hugomods/bootstrap/issues/143)) ([dab07c4](https://github.com/hugomods/bootstrap/commit/dab07c4790c72b948c52bf32b201dfecba49153e))
+
+
+### Styles 🎨
+
+* **collapse:** add the triangle indicator ([dab07c4](https://github.com/hugomods/bootstrap/commit/dab07c4790c72b948c52bf32b201dfecba49153e))
+
 ## [0.20.1](https://github.com/hugomods/bootstrap/compare/v0.20.0...v0.20.1) (2024-03-20)
 
 
