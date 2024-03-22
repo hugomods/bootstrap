@@ -1,15 +1,21 @@
 .collapse-toggle {
-  padding-left: 0.25rem !important;
-
   &::before {
-    content: "\2BC8";
     margin-right: 0.25rem;
+    border-left: 10px solid;
+    border-top: 5px solid transparent;
+    border-bottom: 5px solid transparent;
+    width: 0;
+    height: 0;
+    content: "";
+    display: inline-block;
   }
 
   &[aria-expanded=true] {
     &::before {
-      transform: rotate(90deg);
-      display: inline-block;
+      border-top: 10px solid;
+      border-left: 5px solid transparent;
+      border-right: 5px solid transparent;
+      border-bottom: unset;
     }
   }
 }
