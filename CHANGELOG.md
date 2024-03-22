@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.21.2](https://github.com/hugomods/bootstrap/compare/v0.21.1...v0.21.2) (2024-03-22)
+
+
+### Bug Fixes 🐞
+
+* **collapse:** replace unicode triangle indicator with pure CSS ([f11183b](https://github.com/hugomods/bootstrap/commit/f11183bc5c209ea9b9253d88d09993cc95c1318b))
+
 ## [0.21.1](https://github.com/hugomods/bootstrap/compare/v0.21.0...v0.21.1) (2024-03-21)
 
 
