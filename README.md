@@ -5,4 +5,4 @@
 [![License](https://img.shields.io/github/license/hugomods/bootstrap?style=flat-square)](https://github.com/hugomods/bootstrap/blob/main/LICENSE)
 [![Version](https://img.shields.io/github/v/tag/hugomods/bootstrap?label=version&style=flat-square)](https://github.com/hugomods/bootstrap/tags)
 
-This module ships with handy partials and shortcodes, please checkout the [documentations](https://hugomods.com/en/docs/bootstrap/) for details.
+This module ships with handy partials and shortcodes, please checkout the [documentation](https://hugomods.com/en/docs/bootstrap/) for details.
