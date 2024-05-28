@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.22.0](https://github.com/hugomods/bootstrap/compare/v0.21.2...v0.22.0) (2024-05-28)
+
+
+### Features ✨
+
+* **i18n:** add Vietnamese translations ([a9f1f9e](https://github.com/hugomods/bootstrap/commit/a9f1f9edf848f01bdceffbabe3d9337520afcddc))
+
 ## [0.21.2](https://github.com/hugomods/bootstrap/compare/v0.21.1...v0.21.2) (2024-03-22)
 
 
