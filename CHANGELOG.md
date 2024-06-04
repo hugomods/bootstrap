@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.22.1](https://github.com/hugomods/bootstrap/compare/v0.22.0...v0.22.1) (2024-06-04)
+
+
+### Bug Fixes 🐞
+
+* **container:** use bgColor as the second background to avoid not seeing text before successfully loading background images ([#149](https://github.com/hugomods/bootstrap/issues/149)) ([5bc5096](https://github.com/hugomods/bootstrap/commit/5bc5096ce73fc2fdfbe0e160a09546b36b8cce14))
+
 ## [0.22.0](https://github.com/hugomods/bootstrap/compare/v0.21.2...v0.22.0) (2024-05-28)
 
 
