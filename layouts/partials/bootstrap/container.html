@@ -44,7 +44,7 @@
     "background-size: cover"
   }}
 {{- else if ne $bgColor "" }}
-  {{- $style = $style | append (printf "background-color: %s" .) }}
+  {{- $style = $style | append (printf "background-color: %s" $bgColor) }}
 {{- end }}
 <div
   class="{{ delimit $classes ` ` }}"
