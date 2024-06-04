@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.22.2](https://github.com/hugomods/bootstrap/compare/v0.22.1...v0.22.2) (2024-06-04)
+
+
+### Bug Fixes 🐞
+
+* **container:** bgColor ([9f8573c](https://github.com/hugomods/bootstrap/commit/9f8573c0a9d9b00451c42ac5a4b86918ed77bb17))
+
 ## [0.22.1](https://github.com/hugomods/bootstrap/compare/v0.22.0...v0.22.1) (2024-06-04)
 
 
