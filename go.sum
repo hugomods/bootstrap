@@ -10,3 +10,4 @@ github.com/hugomods/icons/vendors/bootstrap v0.5.7/go.mod h1:bTxiIPJ/idHEc35Etvt
 github.com/hugomods/images v0.10.0 h1:8Tsro/IWi5VFdDiEgAHcR6mxycQ/Bu7JXW3vIH7B2n8=
 github.com/hugomods/images v0.10.0/go.mod h1:U6Gwj16LKvk66rOMyGFrnF6f0aV8lT89lqOsckOAjYY=
 github.com/hugomods/images v0.10.1/go.mod h1:U6Gwj16LKvk66rOMyGFrnF6f0aV8lT89lqOsckOAjYY=
+github.com/hugomods/images v0.11.0/go.mod h1:U6Gwj16LKvk66rOMyGFrnF6f0aV8lT89lqOsckOAjYY=
