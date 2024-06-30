@@ -1,4 +1,8 @@
-{{- $id := printf "collapse-%d" now.UnixNano -}}
+{{- if not (.Page.Scratch.Get "collapseCounter") -}}
+  {{- .Page.Scratch.Set "collapseCounter" 0 -}}
+{{- end -}}
+{{- .Page.Scratch.Add "collapseCounter" 1 -}}
+{{- $id := printf "collapse-%d" (.Page.Scratch.Get "collapseCounter") -}}
 {{- $heading := "" -}}
 {{- $style := "primary" -}}
 {{- $expand := false -}}
