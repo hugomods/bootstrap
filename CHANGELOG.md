@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.22.3](https://github.com/hugomods/bootstrap/compare/v0.22.2...v0.22.3) (2024-06-30)
+
+
+### Bug Fixes 🐞
+
+* **collapse:** use `Scratch` instead of `now.UnixNano` to generate ID ([#156](https://github.com/hugomods/bootstrap/issues/156)) ([fdfc144](https://github.com/hugomods/bootstrap/commit/fdfc144fbb2010e204bce4b062989f9748895e87))
+
 ## [0.22.2](https://github.com/hugomods/bootstrap/compare/v0.22.1...v0.22.2) (2024-06-04)
 
 
