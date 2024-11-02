@@ -1,0 +1,57 @@
+{{- $url := "" }}
+{{- $title := "" }}
+{{- $description := .Inner }}
+{{- $img := "" }}
+{{- $author := "" }}
+{{- $authorIcon := "" }}
+{{- $authorIconVendor := "bootstrap" }}
+{{- $authorImg := "" }}
+{{- if .IsNamedParams }}
+  {{- $url = .Get "url" }}
+  {{- $title = .Get "title" }}
+  {{- $img = .Get "img" }}
+  {{- $author = .Get "author" }}
+  {{- $authorIcon = .Get "authorIcon" }}
+  {{- $authorImg = .Get "authorImg" }}
+  {{- with .Get "authorIconVendor" }}
+    {{- $authorIconVendor = . }}
+  {{- end }}
+{{- else }}
+  {{- $url = .Get 0 }}
+  {{- $title = .Get 1 }}
+  {{- $img = .Get 2 }}
+{{- end }}
+<figure class="bookmark-card bg-body-tertiary rounded">
+  <a
+    class="text-decoration-none d-grid d-lg-flex flex-row"
+    href="{{ $url }}"
+    target="_blank">
+    <div class="bookmark-card-body order-2 p-3">
+      <div class="bookmark-card-title fs-5 text-body-emphasis">{{ $title }}</div>
+      {{- with $description }}
+        <small class="bookmark-card-desc text-body-secondary mt-2">{{ . | markdownify }}</small>
+      {{- end }}
+      {{- with $author }}
+        <div class="text-body-secondary mt-2">
+          <small class="bookmark-card-author d-flex align-items-center">
+            {{- with $authorIcon }}
+              {{ partial "icons/icon" (dict "vendor" $authorIconVendor "name" . "size" "20px" "className" "me-2") }}
+            {{- end }}
+            {{- with $authorImg }}
+              <img class="me-2 w-auto" src="{{ . }}" alt="{{ $author }}" style="height: 20px;" />
+            {{- end }}
+            {{ . }}
+          </small>
+        </div>
+      {{- end }}
+    </div>
+    {{- with $img }}
+    <div class="d-flex order-1 order-lg-3">
+      <img
+        class="bookmark-card-img object-fit-cover w-100 rounded-end"
+        src="{{ . }}"
+        alt="{{ $title }}"  />
+    </div>
+    {{- end }}
+  </a>
+</figure>
