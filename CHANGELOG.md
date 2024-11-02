@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.23.0](https://github.com/hugomods/bootstrap/compare/v0.22.3...v0.23.0) (2024-11-02)
+
+
+### Features ✨
+
+* add the bookmark-card shortcode ([#164](https://github.com/hugomods/bootstrap/issues/164)) ([6f1c603](https://github.com/hugomods/bootstrap/commit/6f1c6034bbd6286fa1be869c7ce196ef962c48fe))
+
 ## [0.22.3](https://github.com/hugomods/bootstrap/compare/v0.22.2...v0.22.3) (2024-06-30)
 
 
