@@ -8,6 +8,7 @@ github.com/hugomods/icons/vendors/bootstrap v0.5.6 h1:4Vj7u52gFUnO+Jj/CqmGfsLroi
 github.com/hugomods/icons/vendors/bootstrap v0.5.6/go.mod h1:Sw1RhQvFcsQlJ5a4SKpp7A0XHDYQ0DK0pQwnnx+l+Ao=
 github.com/hugomods/icons/vendors/bootstrap v0.5.7/go.mod h1:bTxiIPJ/idHEc35EtvtwSODLpjI+R54BkGdikO3gCmY=
 github.com/hugomods/icons/vendors/bootstrap v0.5.8/go.mod h1:jla3IbQAByyz45AikUAw/c7h0wUMUn5Z2j4gh+zVDj4=
+github.com/hugomods/icons/vendors/bootstrap v0.5.9/go.mod h1:DuB5N1o3GCUyvYFnEeBvJRBrCHqbMWEbjoEWVLULggw=
 github.com/hugomods/images v0.10.0 h1:8Tsro/IWi5VFdDiEgAHcR6mxycQ/Bu7JXW3vIH7B2n8=
 github.com/hugomods/images v0.10.0/go.mod h1:U6Gwj16LKvk66rOMyGFrnF6f0aV8lT89lqOsckOAjYY=
 github.com/hugomods/images v0.10.1/go.mod h1:U6Gwj16LKvk66rOMyGFrnF6f0aV8lT89lqOsckOAjYY=
