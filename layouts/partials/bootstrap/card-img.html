@@ -1,0 +1,11 @@
+{{- $filename := "" }}
+{{- if .IsNamedParams }}
+  {{- $filename = .Get "url" }}
+{{- else }}
+  {{- $filename = .Get 0 }}
+{{- end }}
+{{ partial "images/image" (dict
+  "Page" .Page
+  "Filename" $filename
+  "ClassName" "card-img-top")
+}}
