@@ -4,6 +4,6 @@ go 1.19
 
 require (
 	github.com/hugomods/base v0.7.3 // indirect
-	github.com/hugomods/icons/vendors/bootstrap v0.5.9 // indirect
+	github.com/hugomods/icons/vendors/bootstrap v0.5.10 // indirect
 	github.com/hugomods/images v0.11.2 // indirect
 )
