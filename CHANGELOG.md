@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.24.0](https://github.com/hugomods/bootstrap/compare/v0.23.0...v0.24.0) (2025-06-14)
+
+
+### Features ✨
+
+* add the `markdown` parameter for collapse shortcode, render as it is if set as `false` ([c3cebe4](https://github.com/hugomods/bootstrap/commit/c3cebe42d019905a1dbfd8505ba55f32e5109bbe))
+
 ## [0.23.0](https://github.com/hugomods/bootstrap/compare/v0.22.3...v0.23.0) (2024-11-02)
 
 
