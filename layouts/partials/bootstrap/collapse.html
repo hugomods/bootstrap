@@ -8,8 +8,10 @@
 {{- $expand := false -}}
 {{- $rounded := true -}}
 {{- $border := true }}
+{{- $markdown := true }}
 {{- if .IsNamedParams -}}
   {{- $heading = .Get "heading" -}}
+  {{- with .Get "markdown" }}{{ $markdown = . }}{{ end -}}
   {{- with .Get "style" }}{{ $style = . }}{{ end -}}
   {{- with .Get "expand" }}{{ $expand = . }}{{ end -}}
   {{- with .Get "rounded" }}{{ $rounded = . }}{{ end -}}
@@ -33,6 +35,10 @@
   <div
     class="collapse{{ cond $border ` border` `` }}{{ cond $rounded ` rounded-bottom rounded-end` `` }} px-2 pt-2 pb-1 mb-3{{ cond $expand ` show` `` }}"
     id="{{ $id }}">
-    {{ trim .Inner "\r\n" | .Page.RenderString }}
+    {{ if $markdown }}
+      {{ trim .Inner "\r\n" | .Page.RenderString }}
+    {{ else }}
+      {{ .Inner }}
+    {{ end }}
   </div>
 </div>
