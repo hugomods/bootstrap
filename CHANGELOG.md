@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.24.1](https://github.com/hugomods/bootstrap/compare/v0.24.0...v0.24.1) (2025-06-14)
+
+
+### Bug Fixes 🐞
+
+* collapse markdown parameter ([08d17a8](https://github.com/hugomods/bootstrap/commit/08d17a8ffc0c0d3ad889809b130840ce2265830e))
+
 ## [0.24.0](https://github.com/hugomods/bootstrap/compare/v0.23.0...v0.24.0) (2025-06-14)
 
 
