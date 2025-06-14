@@ -11,7 +11,7 @@
 {{- $markdown := true }}
 {{- if .IsNamedParams -}}
   {{- $heading = .Get "heading" -}}
-  {{- with .Get "markdown" }}{{ $markdown = . }}{{ end -}}
+  {{- if isset $.Params "markdown" }}{{ $markdown = $.Get "markdown" }}{{ end -}}
   {{- with .Get "style" }}{{ $style = . }}{{ end -}}
   {{- with .Get "expand" }}{{ $expand = . }}{{ end -}}
   {{- with .Get "rounded" }}{{ $rounded = . }}{{ end -}}
