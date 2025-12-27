@@ -1,5 +1,12 @@
 # Changelog
 
+## [0.24.2](https://github.com/hugomods/bootstrap/compare/v0.24.1...v0.24.2) (2025-12-27)
+
+
+### Bug Fixes 🐞
+
+* collapse ([0b245d0](https://github.com/hugomods/bootstrap/commit/0b245d09626c2e563d96f0ef806072e3155bf0a3))
+
 ## [0.24.1](https://github.com/hugomods/bootstrap/compare/v0.24.0...v0.24.1) (2025-06-14)
 
 
