@@ -36,7 +36,7 @@
     class="collapse{{ cond $border ` border` `` }}{{ cond $rounded ` rounded-bottom rounded-end` `` }} px-2 pt-2 pb-1 mb-3{{ cond $expand ` show` `` }}"
     id="{{ $id }}">
     {{ if $markdown }}
-      {{ trim .Inner "\r\n" | .Page.RenderString }}
+      {{- trim .Inner "\r\n" | .Page.RenderString -}}
     {{ else }}
       {{ .Inner }}
     {{ end }}
