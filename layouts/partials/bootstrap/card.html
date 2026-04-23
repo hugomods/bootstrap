@@ -1,0 +1,10 @@
+{{- $class := "" }}
+{{- if .IsNamedParams }}
+  {{- with .Get "class" }}{{ $class = . }}{{ end }}
+{{- else }}
+{{- end }}
+{{- $classes := slice "card" }}
+{{- with $class }}{{ $classes = $classes | append . }}{{ end }}
+<div class="{{ delimit $classes ` ` }}">
+  {{ .Inner }}
+</div>
